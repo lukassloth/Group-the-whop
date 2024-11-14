@@ -150,6 +150,7 @@ const myQuestions = [
 
 buildQuiz();
 
+resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+
 submitButton.addEventListener('click', showResults);
 
-resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
