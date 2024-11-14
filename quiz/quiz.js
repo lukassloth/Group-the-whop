@@ -22,6 +22,26 @@ function buildQuiz(){
     quizContainer.innerHTML = output.join('');
 };
 
+function showResults(){
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+    let numCorrect = 0;
+
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        if(userAnswer === currentQuestion.correctAnswer){
+            numCorrect++;
+            answerContainers[questionNumber].style.color = 'lightgreen';
+    }
+    else{
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+}
+
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
@@ -127,3 +147,9 @@ const myQuestions = [
         correctAnswer: "c"
     }
 ];
+
+buildQuiz();
+
+submitButton.addEventListener('click', showResults);
+
+resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
