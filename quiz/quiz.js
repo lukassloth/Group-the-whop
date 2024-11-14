@@ -14,8 +14,10 @@ function buildQuiz(){
             }
 
             output.push(
-                `<div class="question"> ${currentQuestion.question} </div> 
-                <div class="answers"> ${answers.join('')} </div>`
+                `<div class="slide">
+                <div class="question"> ${currentQuestion.question} </div> 
+                <div class="answers"> ${answers.join('')} </div>
+                </div>`
             );
         }
     );
@@ -40,109 +42,99 @@ function showResults(){
       }
     });
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-}
+};
+
+function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide === 0){
+      previousButton.style.display = 'none';
+    }
+    else{
+      previousButton.style.display = 'inline-block';
+    }
+    if(currentSlide === slides.length-1){
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }
+    else{
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  };
 
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const myQuestions = [
     {
-        question: "spørgsmål 1?",
+        question: "How much of the world's electricity currently comes from solar energy?",
         answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
+            a: "10.4%",
+            b: "0.7%",
+            c: "3.9%",
+            d: "21,6%"
         },
         correctAnswer: "c"
     },
     {
-        question: "spørgsmål 2?",
+        question: "Which country is the leader in solar enegy production?",
         answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
+            a: "United States of American",
+            b: "Germany",
+            c: "India",
+            d: "China"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "The IEA projects that solar energy could become the largest energy source by ... ?",
+        answers: {
+            a: "2060",
+            b: "2050",
+            c: "2040",
+            d: "2030"
         },
         correctAnswer: "b"
     },
     {
-        question: "spørgsmål 3?",
+        question: "How many percent of the materials in a solar panel can be recycled?",
         answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
+            a: "Up to 99%",
+            b: "Up to 69%",
+            c: "Up to 29%",
+            d: "Up to 75%"
         },
         correctAnswer: "a"
     },
     {
-        question: "spørgsmål 4?",
+        question: "Which spacecraft is entirely powered by solar energy?",
         answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
+            a: "Space X's 'Starship'",
+            b: "The International Space Station",
+            c: "Virgin Galactic's 'VSS Unity'",
+            d: "The Millennium Falcon"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "What is the largest solar panel farm with a capacity of 5 GW?",
+        answers: {
+            a: "Golmud Solar Park, China",
+            b: "Bhadla Solar Park, India",
+            c: "Xinjiang Solar Farm, China",
+            d: "Pavagada Solar Farm, India"
         },
         correctAnswer: "c"
     },
     {
-        question: "spørgsmål 5?",
+        question: "How long does it take for a solar panel to become carbon neutral?",
         answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
-        },
-        correctAnswer: "b"
-    },
-    {
-        question: "spørgsmål 6?",
-        answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "spørgsmål 7?",
-        answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
-        },
-        correctAnswer: "c"
-    },
-    {
-        question: "spørgsmål 8?",
-        answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
-        },
-        correctAnswer: "b"
-    },
-    {
-        question: "spørgsmål 9?",
-        answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "spørgsmål 10?",
-        answers: {
-            a: "svar 1",
-            b: "svar 2",
-            c: "svar 3",
-            d: "svar 4"
+            a: "Within 1 year of operation",
+            b: "Within 2 years of operation",
+            c: "Within 3 years of operation",
+            d: "Within 4 years of operation"
         },
         correctAnswer: "c"
     }
@@ -150,6 +142,22 @@ const myQuestions = [
 
 buildQuiz();
 
+const previousButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+showSlide(currentSlide);
+
+function showNextSlide() {
+    showSlide(currentSlide + 1);
+};
+  
+function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+};
+
+previousButton.addEventListener("click", showPreviousSlide);
+nextButton.addEventListener("click", showNextSlide);
 submitButton.addEventListener('click', showResults);
 
-resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;

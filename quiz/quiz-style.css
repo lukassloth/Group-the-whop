@@ -12,9 +12,9 @@ h1{
   font-weight: 300;
   margin: 0px;
   padding: 10px;
-  font-size: 20px;
+  font-size: 40px;
   background-color: #444;
-  color: #fff;
+  color: #fff;  
 }
 .question{
   font-size: 30px;
@@ -63,3 +63,7 @@ button:hover{
   height: 200px;
   margin-top: 40px;
 }
+
+#results {
+    display: block;
+  }
