@@ -12,12 +12,30 @@
     <script src="https://unpkg.com/topojson@3"></script>
 
 </head>
-<body>
-    <h1 id="frontpage_heading"> Manhatten Project</h1>
+<body> 
+    <label class="hamburger-menu">
+        <input type="checkbox" />
+      </label>
+      <aside class="sidebar">
+        <nav>
+          <table id="sidebar">
+        <tr><td><a href="index.html">Map</a></td></tr>
+        <tr><td><a href="/quiz/quiz.html">Quiz</a></td></tr>
+        <tr><td><a href="test1.html">Test1</a></td></tr>
+        <tr><td><a href="index.html">Test2</a></td></tr>
+    </table>
+        </nav>
+      </aside>
 
-    <!-- Herunder er en div til at have kortet i og
-    et link til javascriptet til kortet. -->
+
+    <!-- Hovedoverskrift -->
+    <h1 id="frontpage_heading">MANHATTAN PROJECT</h1>
+
+    <!-- Kort-container -->
     <div id="map-container"></div>
+
+    <!-- Link til kortets JavaScript-fil -->
     <script src="your-map-script.js"></script>
+    
 </body>
 </html>
