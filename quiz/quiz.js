@@ -124,7 +124,7 @@ const myQuestions = [
             a: "Golmud Solar Park, China",
             b: "Bhadla Solar Park, India",
             c: "Xinjiang Solar Farm, China",
-            d: "Pavagada Solar Farm, India"
+            d: "Huanghe Hydropower Hainan Solar Park, China"
         },
         correctAnswer: "c"
     },

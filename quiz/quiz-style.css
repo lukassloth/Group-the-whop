@@ -1,24 +1,26 @@
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Teko:wght@300..700&display=swap');
 
 body{
   font-size: 20px;
   font-family: 'Work Sans', sans-serif;
-  color: #333;
   font-weight: 300;
   text-align: center;
-  background-color: #f8f6f0;
+  background-color: #d9c3a9;
 }
 h1{
   font-weight: 300;
-  margin: 0px;
-  padding: 10px;
-  font-size: 40px;
-  background-color: #444;
-  color: #fff;  
+  margin: 10px;
+  padding-top: 20px;
+  font-size: 50px;
+  color: #404040;
+  font-family: Teko;
+  font-weight: bold;
 }
 .question{
   font-size: 30px;
   margin-bottom: 10px;
+  font-family: Roboto Slab;
+  color: #404040;
 }
 .answers {
   margin-bottom: 20px;
@@ -29,11 +31,12 @@ h1{
   display: block;
   margin-bottom: 10px;
 }
+
 button{
   font-family: 'Work Sans', sans-serif;
   font-size: 22px;
-  background-color: #279;
-  color: #fff;
+  background-color: #6f8c52;
+  color: #f2f2f2;
   border: 0px;
   border-radius: 3px;
   padding: 20px;
@@ -42,7 +45,7 @@ button{
 }
 
 button:hover{
-  background-color: #38a;
+  background-color: #4d7327;
 }
 
 .slide{
