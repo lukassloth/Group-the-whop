@@ -13,35 +13,15 @@ function buildQuiz(){
                 );
             }
 
-            output.push(
-                `<div class="slide">
-                <div class="question"> ${currentQuestion.question} </div> 
-                <div class="answers"> ${answers.join('')} </div>
-                </div>`
+                output.push( 
+                    `<div class="slide">
+                    <div class="question"> ${currentQuestion.question} </div> 
+                    <div class="answers"> ${answers.join('')} </div>
+                    </div>`
             );
         }
     );
     quizContainer.innerHTML = output.join('');
-};
-
-function showResults(){
-    const answerContainers = quizContainer.querySelectorAll('.answers');
-    let numCorrect = 0;
-
-    myQuestions.forEach( (currentQuestion, questionNumber) => {
-        const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-        if(userAnswer === currentQuestion.correctAnswer){
-            numCorrect++;
-            answerContainers[questionNumber].style.color = 'lightgreen';
-    }
-    else{
-        answerContainers[questionNumber].style.color = 'red';
-      }
-    });
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 };
 
 function showSlide(n) {
@@ -62,7 +42,40 @@ function showSlide(n) {
       nextButton.style.display = 'inline-block';
       submitButton.style.display = 'none';
     }
-  };
+};
+
+function showResults(){
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+    let numCorrect = 0;
+    let output = "";
+
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+
+        const isCorrect = userAnswer === currentQuestion.correctAnswer;
+        if (isCorrect) {
+            numCorrect++;
+            answerContainers[questionNumber].style.color = 'green';
+        } else {
+            answerContainers[questionNumber].style.color = 'red';
+        };
+    
+    output += `<p>
+      <strong>Question ${questionNumber + 1}: ${currentQuestion.question}</strong><br>
+      Your answer: ${userAnswer || "No answer"}<br>
+      Correct answer: ${currentQuestion.correctAnswer}<br>
+      ${isCorrect ? '<span style="color: green;">Correct!</span>' : '<span style="color: red;">Incorrect</span>'}
+    </p>`;
+
+    resultsContainer.innerHTML = `
+    <p>${numCorrect} out of ${myQuestions.length} correct</p>
+    ${output}`;
+    resultsContainer.style.display = 'block';
+}
+)};
 
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
