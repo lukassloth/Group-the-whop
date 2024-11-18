@@ -1,74 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Teko:wght@300..700&display=swap');
-
-body{
+body{ /* Giver baggrundsfarve fra vores pallete og centrerer tekst for hele bodien */
   background-color: #d9c3a9;
   text-align: center;
-}
-h1{
-  font-weight: 300;
-  margin: 10px;
-  padding-top: 10px;
-  font-size: 50px;
-  color: #404040;
+};
+
+h1{ /* Overskriften */
+  margin: 10px; /* Giver 10px margin til alle sider */
+  padding-top: 10px; /* Giver 10px padding i toppen */
+  font-size: 50px; /* Størrelse på fonten */
+  color: #404040; /* Farven på teksten - taget fra vores palette */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: bold;
-}
-.question{
-  font-size: 25px;
-  margin-bottom: 20px;
-  padding: 10px;
-  color: #404040;
-}
-.answers {
-  margin-bottom: 20px;
-  padding: 10px;
-  text-align: left;
-  display: inline-block;
-  font-size: 20px;
-}
-.answers label{
-  display: block;
-  margin-bottom: 10px;
-}
+  /* Den valgte font til overskrifter */
+  font-weight: bold; /* Gør teksten fed */
+};
 
-button{
-  font-size: 22px;
-  background-color: #6f8c52;
-  color: #f2f2f2;
-  border: 0px;
-  border-radius: 3px;
-  padding: 10px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
+.question{ /* Spørgsmålene */
+  font-size: 25px; /* Sætter font størrelsen til 25px */
+  margin-bottom: 20px; /* Sætter en 20px margin i bunden */
+  padding: 10px; /* Sætter 10px padding om det hele */
+  color: #404040; /* Farven på teksten - taget fra vores palette */
+};
 
-button:hover{
-  background-color: #4d7327;
-}
+.answers { /* Svarmulighederne */
+  margin-bottom: 20px; /* Sætter 20px margin i bunden */
+  padding: 10px; /* Sætter 10px padding rundt om */
+  text-align: left; /* Gør teksten opstillet fra venstre */
+  display: inline-block; /* Sætter dem på linje med andre elementer, og gør det muligt at ændre højde og bredde */
+  font-size: 20px; /* Sætter font størrelsen til 20px */
+};
 
-.slide{
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
+.answers label{ /* Label for svarmulighederne */
+  display: block; /* Gør den til et block element, og får den til at fylde hele linjen */
+  margin-bottom: 10px; /* Sætter en margin på 10px i bunden */
+};
+
+button{ /* Knapperne */
+  font-size: 22px; /* Størrelse på teksten */
+  background-color: #6f8c52; /* Baggrundsfarve valgt fra vores farvepalette */
+  color: #f2f2f2; /* Farven på teksten valgt fra vores palette */
+  border: 0px; /* Fjerner border */
+  border-radius: 3px; /* Brugt for at gøre hjørnerne runde */
+  padding: 10px; /* Sætter 10px padding rundt om  */
+  cursor: pointer; /* Gør så musen bliver en 'pointer' når man er på knappen */
+  margin-bottom: 20px; /* Sætter 20px margin i toppen */
+  margin-top: 20px; /* Sætter 20px margin i bunden */
+};
+
+button:hover{ /* Når der hovers over knappen */
+  background-color: #4d7327; /* Baggrundsfarve der kommer frem når man hover over knappen valgt fra vores palette */
+};
+
+.slide{ /* Alle slides med spørgsmål */
+  position: absolute; /* Sætter positionen af elementet til absolute */
+  left: 0px; /* Refererer til positionen af boxen */
+  top: 0px; /* Refererer til positionen af boxen */
+  width: 100%; /* Sætter den til at passe til 100% af boxen den er i */
+  z-index: 1; /* Sætter en lag effekt på den */
+  opacity: 0; /* Sætter den til at være helt gennemsigtig */
+  transition: opacity 0.5s; /* Hvor lang tid overgangen skal tage og hvad den omhandler*/
+};
+
 .active-slide{
-  opacity: 1;
-  z-index: 2;
-}
+  opacity: 1; /* Gør den synlig kontra de andre slides */
+  z-index: 2; /* Gør så den aktive slide er foran de andre slides */
+};
+
 .quiz-container{
-  position: relative;
-  height: 200px;
-  margin-top: 40px;
-}
+  position: relative; /* Sætter positionen af quiz-containeren til relativ */
+  height: 200px; /* Sætter højden på containeren til 200px */
+  margin-top: 40px; /* Sætter en 40px margin på toppen */
+};
 
 #results {
-    display: block;
-    color: #404040;
-    border-radius: 3px;
-    font-size: 20px;
-}
+    display: block; /* Gør det til et block-element, der fylder hele linjen */
+    color: #404040; /* Sætter tekst farven til vores valgte mørkegrå */
+    border-radius: 3px; /* Giver boksen afrundede hjørner */
+    font-size: 20px; /* Sætter font størrelsen til 20px */
+};
