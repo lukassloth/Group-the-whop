@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Manhatten Project</title>
-    <link rel="shortcut icon" href="sun-cursor.png"/>
+    <link rel="shortcut icon" href="sun-icon.png"/>
 
     <!-- Koden herunder er til at hente verdenskortet.
     Det nederste script er indsat i det det øverste ikke virker uden -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson@3"></script>
-
+   
 </head>
 <body> 
     <label class="hamburger-menu">
@@ -27,6 +27,16 @@
     </table>
         </nav>
       </aside>
+
+      <div class="buttons">
+        <button data-continent="World">World</button>
+        <button data-continent="Africa">Africa</button>
+        <button data-continent="Asia">Asia</button>
+        <button data-continent="Europe">Europe</button>
+        <button data-continent="NorthAmerica">North America</button>
+        <button data-continent="SouthAmerica">South America</button>
+        <button data-continent="Australia">Australia</button>
+    </div>
    
     <!-- Hovedoverskrift -->
     <h1 id="frontpage_heading">MANHATTAN PROJECT</h1>
