@@ -68,7 +68,6 @@ button:hover{ /* Når der hovers over knappen */
   position: relative; /* Sætter positionen af quiz-containeren til relativ */
   height: 200px; /* Sætter højden på containeren til 200px */
   margin-top: 40px; /* Sætter en 40px margin på toppen */
-  margin-bottom: 40px;
 }
 
 #results {
