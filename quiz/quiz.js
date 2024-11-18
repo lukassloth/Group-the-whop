@@ -1,4 +1,4 @@
-function buildQuiz(){ //Funktion, der bruges til at lave quizzen 
+function buildQuiz(){ //Funktion, der bruges til at lave quizzen
     const output = []; //Tomt array, der bliver brugt til at gemme HTML-koden til hvert quizspørgsmål
     myQuestions.forEach( // ForEach loop, der kører alle spørgsmålene igennem
         (currentQuestion, questionNumber) => { //Referer til det aktuelle spørgsmål og index
