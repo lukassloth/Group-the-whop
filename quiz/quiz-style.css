@@ -1,7 +1,7 @@
 body{ /* Giver baggrundsfarve fra vores pallete og centrerer tekst for hele bodien */
   background-color: #d9c3a9;
   text-align: center;
-};
+}
 
 h1{ /* Overskriften */
   margin: 10px; /* Giver 10px margin til alle sider */
@@ -11,14 +11,14 @@ h1{ /* Overskriften */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* Den valgte font til overskrifter */
   font-weight: bold; /* Gør teksten fed */
-};
+}
 
 .question{ /* Spørgsmålene */
   font-size: 25px; /* Sætter font størrelsen til 25px */
   margin-bottom: 20px; /* Sætter en 20px margin i bunden */
   padding: 10px; /* Sætter 10px padding om det hele */
   color: #404040; /* Farven på teksten - taget fra vores palette */
-};
+}
 
 .answers { /* Svarmulighederne */
   margin-bottom: 20px; /* Sætter 20px margin i bunden */
@@ -26,12 +26,12 @@ h1{ /* Overskriften */
   text-align: left; /* Gør teksten opstillet fra venstre */
   display: inline-block; /* Sætter dem på linje med andre elementer, og gør det muligt at ændre højde og bredde */
   font-size: 20px; /* Sætter font størrelsen til 20px */
-};
+}
 
 .answers label{ /* Label for svarmulighederne */
   display: block; /* Gør den til et block element, og får den til at fylde hele linjen */
   margin-bottom: 10px; /* Sætter en margin på 10px i bunden */
-};
+}
 
 button{ /* Knapperne */
   font-size: 22px; /* Størrelse på teksten */
@@ -43,11 +43,11 @@ button{ /* Knapperne */
   cursor: pointer; /* Gør så musen bliver en 'pointer' når man er på knappen */
   margin-bottom: 20px; /* Sætter 20px margin i toppen */
   margin-top: 20px; /* Sætter 20px margin i bunden */
-};
+}
 
 button:hover{ /* Når der hovers over knappen */
   background-color: #4d7327; /* Baggrundsfarve der kommer frem når man hover over knappen valgt fra vores palette */
-};
+}
 
 .slide{ /* Alle slides med spørgsmål */
   position: absolute; /* Sætter positionen af elementet til absolute */
@@ -57,22 +57,22 @@ button:hover{ /* Når der hovers over knappen */
   z-index: 1; /* Sætter en lag effekt på den */
   opacity: 0; /* Sætter den til at være helt gennemsigtig */
   transition: opacity 0.5s; /* Hvor lang tid overgangen skal tage og hvad den omhandler*/
-};
+}
 
 .active-slide{
   opacity: 1; /* Gør den synlig kontra de andre slides */
   z-index: 2; /* Gør så den aktive slide er foran de andre slides */
-};
+}
 
 .quiz-container{
   position: relative; /* Sætter positionen af quiz-containeren til relativ */
   height: 200px; /* Sætter højden på containeren til 200px */
   margin-top: 40px; /* Sætter en 40px margin på toppen */
-};
+}
 
 #results {
     display: block; /* Gør det til et block-element, der fylder hele linjen */
     color: #404040; /* Sætter tekst farven til vores valgte mørkegrå */
     border-radius: 3px; /* Giver boksen afrundede hjørner */
     font-size: 20px; /* Sætter font størrelsen til 20px */
-};
+}
