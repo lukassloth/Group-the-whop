@@ -13,10 +13,26 @@ h1{ /* Overskriften */
   font-weight: bold; /* Gør teksten fed */
 }
 
+#miniHeadline{ /* H2 overskriften */
+  color: #404040; /* Farven på teksten - taget fra vores palette */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* Vores valgte overskrift font */
+  font-size: 30px; /* Størrelsen på fonten */
+  padding-top: 40px; /* Sætter 40px padding i toppen */
+}
+
+#startText{ /* Paragraf med teksten til start før quiz */
+  color: #404040; /* Farven på teksten - taget vores palette */
+  font-size: 20px; /* Størrelsen på teksten */
+  padding: 15px; /* sætter 15px padding rundt om */
+
+}
+
 .question{ /* Spørgsmålene */
   font-size: 25px; /* Sætter font størrelsen til 25px */
   margin-bottom: 20px; /* Sætter en 20px margin i bunden */
   padding: 10px; /* Sætter 10px padding om det hele */
+  padding-top: 40px; /* Sætter 40px padding i toppen */
   color: #404040; /* Farven på teksten - taget fra vores palette */
 }
 
@@ -43,10 +59,21 @@ button{ /* Knapperne */
   cursor: pointer; /* Gør så musen bliver en 'pointer' når man er på knappen */
   margin-bottom: 20px; /* Sætter 20px margin i toppen */
   margin-top: 20px; /* Sætter 20px margin i bunden */
+  margin-left: 10px; /* Giver 10px margin til venstre */
+  margin-right: 10px; /* Giver 10px margin til højre */
+}
+
+#previous{
+  margin-left: auto; /* Trækker knappen mod venstre */
+  align-self: flex-start; /* Gør så previous knappen er til venstre i div */
+}
+
+#next, #submit{
+  align-self: flex-end; /* Gør så next og submit er til højre */
 }
 
 #start{ /* Start knappen til quizzen */
-  font-size: 40px; /* Sætter start knappen til at være 40px */
+  font-size: 35px; /* Sætter start knappen til at være 40px */
 }
 
 #return{ /* Retur knappen til forsiden */
@@ -76,16 +103,40 @@ button:hover{ /* Når der hovers over knappen */
   z-index: 2; /* Gør så den aktive slide er foran de andre slides */
 }
 
-.quiz-container{
-  position: relative; /* Sætter positionen af quiz-containeren til relativ */
-  height: 200px; /* Sætter højden på containeren til 200px */
+#container{
+  position: relative; /* Sætter positionen af containeren til relativ */
+  height: 350px; /* Sætter højden på containeren til 350px */
   margin-top: 40px; /* Sætter en 40px margin på toppen */
-  margin-bottom: 40px; /* Sætter en 40px margin i bunden */
+  background-color: #f2f2f2; /* Baggrundsfarve på div */
+  display:flex; /* Gør det muligt at rykke rundt på tingene i div */
+  width: 650px; /* Sætter breden på boxen */
+  border-radius: 10px; /* Skaber runde hjørner */
+  left: 380px; /* Sætter boxen 380px ind fra venstre */
+  padding-top: 20px; /* Ligger 20px padding i toppen */
+  flex-direction: column; /* Sætter tingene i søjler for at sikre quizzen er over knapperne */
+  justify-content: space-between; /* Skaber mellemrum mellem tingene */
+}
+
+#numberResult{ /* ID for teksten over resultaterne */
+  font-weight: bold; /* Gør teksten fed */
+  font-size: 30px; /* Ændrer størrelsen på teksten */
 }
 
 #results {
     display: block; /* Gør det til et block-element, der fylder hele linjen */
     color: #404040; /* Sætter tekst farven til vores valgte mørkegrå */
-    border-radius: 3px; /* Giver boksen afrundede hjørner */
+    border-radius: 10px; /* Giver boksen afrundede hjørner */
     font-size: 20px; /* Sætter font størrelsen til 20px */
 }
+
+#results-container{ /* Containeren alle resultaterne er i */
+  margin-top: 100px; /* Sætter 100px margin i toppen */
+  background-color: #f2f2f2; /* Baggrundsfarve fra vores palette */
+  width: 750px; /* Sætter bredden på boxen */
+  height: 900px; /* Sætter højden på boxen */
+  border-radius: 10px; /* Giver afrundede hjørner */
+  position: relative; /* Gør positionen relativ  */
+  left: 320px; /* Refererer til positionen af boxen fra venstre */
+  padding: 15px; /* 15px padding rundt om det hele */
+  display: none; /* Gør så den ikke bliver vist fra start, så JS kan vise den når man trykker submit */
+} 

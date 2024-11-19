@@ -15,13 +15,16 @@
 
 <h1>WELCOME TO THE SOLAR ENERGY QUIZ</h1> <!-- Overskrift -->
 
-<div class="quiz-container"> <!-- Container til at have quizzen i -->
-    <div id="quiz"></div>
+<div id="container">
+    <div class="quiz-container"> <!-- Container til at have quizzen i -->
+        <div id="quiz"></div>
+    </div>
+    <div id="button-container"> <!-- Container til at have knapperne i -->
+        <button id="previous">Previous question</button> <!-- Knap, der går tilbage til forrige spørgsmål -->
+        <button id="next">Next question</button> <!-- Knap, der springer frem til næste spørgsmål -->
+        <button id="submit">Submit answers</button> <!-- Knap, der evaluerer ens svar -->
+    </div>
 </div>
-
-<button id="previous">Previous question</button> <!-- Knap, der går tilbage til forrige spørgsmål -->
-<button id="next">Next question</button> <!-- Knap, der springer frem til næste spørgsmål -->
-<button id="submit">Submit answers</button> <!-- Knap, der evaluerer ens svar -->
 
 <div id="results-container"> <!-- Container til at have svarerne i -->
     <div id="results"></div>
