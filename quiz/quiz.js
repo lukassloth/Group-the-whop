@@ -4,7 +4,7 @@ function buildQuiz(){ //Funktion, der bruges til at lave quizzen
     output.push( // Tilføjer følgende HTML-elementer til output array
         `<div class="slide start-slide active-slide"> 
             <h2 id="miniHeadline">Test your knowledge!</h2>
-            <p>Try answering these questions about solar panels and solar energy</p>
+            <p id="startText">Try answering these questions about solar panels and solar energy</p>
             <button id="start">Start Quiz</button>
         </div>
     `)
@@ -84,7 +84,7 @@ function showResults(){ //Funktion, der viser om svarerne er rigtige og markerer
     //Til sidst skrives der Correct! i grøn, hvis svaret er rigtigt, eller Incorrect i rød, hvis det er forkert eller ikke svaret på
 
     resultsContainer.innerHTML = `
-    <p>${numCorrect} out of ${myQuestions.length} correct</p>
+    <p id="numberResult">${numCorrect} out of ${myQuestions.length} correct</p>
     ${output}`;
     resultsContainer.style.display = 'block';
     //Indsætter den samlede HTML struktur i resultsContainer
@@ -174,6 +174,7 @@ buildQuiz(); //Her kaldes på funktionen buildQuiz
 
 const previousButton = document.getElementById("previous"); //Henter 'previous' knappen fra HTML-dokumentet
 const nextButton = document.getElementById("next"); //Henter 'next' knappen fra HTML-dokumentet
+const resulstContainer = document.getElementById("results-container"); //Henter results-container fra HTML-dokumentet
 const slides = document.querySelectorAll(".slide"); //Henter alle HTML-elementer med slide class
 let currentSlide = 0; //Sørge for den starter på det første slide, og der holdes styr på hvilket slide den er på
 
@@ -197,4 +198,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 previousButton.addEventListener("click", showPreviousSlide); //Når der klikkes på 'previous' knappen, så kaldes showPreviousSlide
 nextButton.addEventListener("click", showNextSlide); //Når der klikkes på 'next' knappen, så kaldes showNextSlide
+submitButton.addEventListener("click", function() {
+    resulstContainer.style.display = 'block';
+});
 submitButton.addEventListener('click', showResults); //Når der klikkes på 'submit' knappen, så kaldes showResults
+submitButton.addEventListener('click', () => { //EventListener, der gør at siden scroller ned til resultatet når man trykker submit
+    document.getElementById('results-container').scrollIntoView({
+        behavior: "smooth"
+    });
+});
