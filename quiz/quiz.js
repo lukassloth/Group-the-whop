@@ -1,10 +1,18 @@
 function buildQuiz(){ //Funktion, der bruges til at lave quizzen
     const output = []; //Tomt array, der bliver brugt til at gemme HTML-koden til hvert quizspørgsmål
+
+    output.push( // Tilføjer følgende HTML-elementer til output array
+        `<div class="slide start-slide active-slide"> 
+            <h2 id="miniHeadline">Test your knowledge!</h2>
+            <p>Try answering these questions about solar panels and solar energy</p>
+            <button id="start">Start Quiz</button>
+        </div>
+    `)
     myQuestions.forEach( // ForEach loop, der kører alle spørgsmålene igennem
         (currentQuestion, questionNumber) => { //Referer til det aktuelle spørgsmål og index
             const answers = []; //Tomt array til at holde svarmuligheder i
             for(letter in currentQuestion.answers){ //For loop, der går igennem alle svarmuligheder til det aktuelle spørgsmål
-                answers.push( //Tilføjer HTML-kode til answers array for hver svarmulighed
+                answers.push( //Tilføjer HTML-elemter til answers array for hver svarmulighed
                     `<label> 
                         <input type="radio" name="question${questionNumber}" value="${letter}">
                         ${letter} : 
@@ -13,7 +21,7 @@ function buildQuiz(){ //Funktion, der bruges til at lave quizzen
                 );
             }
 
-                output.push( //Tilføjer HTML-kode til output array
+                output.push( //Tilføjer HTML-elementer til output array
                     `<div class="slide"> 
                     <div class="question"> ${currentQuestion.question} </div> 
                     <div class="answers"> ${answers.join('')} </div>
@@ -29,20 +37,18 @@ function buildQuiz(){ //Funktion, der bruges til at lave quizzen
 function showSlide(n) { //Funktion for hvilket slide, der vises med parameteren n
     slides[currentSlide].classList.remove('active-slide'); //Fjerner class 'active-slide' fra den slide, der er aktiv
     slides[n].classList.add('active-slide'); //Tilføjer class 'active-slide' til den næste slide
+    
     currentSlide = n; //Opdaterer currentSlide så den viser det slide, den nu er på
+    
     if(currentSlide === 0){ // If statement, der referer til 'previous' knappen
       previousButton.style.display = 'none'; //Hvis den er på første slide, så vises 'previous' knappen ikke
+      nextButton.style.display = 'none'; //Hvis det er første slide, så vises 'next' knappen ikke
+      submitButton.style.display = 'none'; //Hvis det er første slide, så vises 'submit' knappen ikke
     }
     else{
-      previousButton.style.display = 'inline-block';//Else statement, der viser 'previous' knappen, hvis den er på alle andre sider end den første
-    }
-    if(currentSlide === slides.length-1){ //If statement, der tjekker om det er sidste slide den er på
-      nextButton.style.display = 'none'; //Hvis det er sidste slide, så vises 'next' knappen ikke
-      submitButton.style.display = 'inline-block'; //Hvis det er sidste slide, så vises 'submit' knappen
-    }
-    else{
-      nextButton.style.display = 'inline-block'; //Er det ikke sidste slide, så vises 'next' knappen
-      submitButton.style.display = 'none'; //Er det ikke sidste slide, så er 'submit' knappen skjult
+      previousButton.style.display = currentSlide === 1 ? 'none' : 'inline-block';//Else statement, der viser 'previous' knappen, hvis den er på alle andre sider end den første
+      nextButton.style.display = currentSlide === slides.length - 1 ? 'none' : 'inline-block'; //Viser 'next' knappen så længe den ikke er på sidste slide
+      submitButton.style.display = currentSlide === slides.length - 1 ? 'inline-block' : 'none'; //Viser 'submit' knappen når den er på sidste slide
     }
 };
 
@@ -181,6 +187,14 @@ function showPreviousSlide() { //Funktion, der gør at den forrige slide bliver 
     showSlide(currentSlide - 1);
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+    const startButton = document.getElementById("start");
+    if (startButton) {
+        startButton.addEventListener("click", () => { //Gør så den skifter til første slide med spørgsmål når man trykker på 'start' knappen
+            showSlide(1);
+        });
+    }
+});
 previousButton.addEventListener("click", showPreviousSlide); //Når der klikkes på 'previous' knappen, så kaldes showPreviousSlide
 nextButton.addEventListener("click", showNextSlide); //Når der klikkes på 'next' knappen, så kaldes showNextSlide
 submitButton.addEventListener('click', showResults); //Når der klikkes på 'submit' knappen, så kaldes showResults
