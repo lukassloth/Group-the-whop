@@ -54,7 +54,7 @@ button{ /* Knapperne */
   background-color: #6f8c52; /* Baggrundsfarve valgt fra vores farvepalette */
   color: #f2f2f2; /* Farven på teksten valgt fra vores palette */
   border: 0px; /* Fjerner border */
-  border-radius: 3px; /* Brugt for at gøre hjørnerne runde */
+  border-radius: 10px; /* Brugt for at gøre hjørnerne runde */
   padding: 10px; /* Sætter 10px padding rundt om  */
   cursor: pointer; /* Gør så musen bliver en 'pointer' når man er på knappen */
   margin-bottom: 20px; /* Sætter 20px margin i toppen */
