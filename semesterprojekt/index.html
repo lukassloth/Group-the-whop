@@ -37,6 +37,18 @@
         <button data-continent="SouthAmerica">South America</button>
         <button data-continent="Australia">Australia</button>
     </div>
+
+    <div id="data"></div>
+
+    <script>
+     fetch('http://localhost:3001/api/data')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // Gør noget med dataene i din frontend
+  })
+  .catch(error => console.error('Error:', error));
+    </script>
    
     <!-- Hovedoverskrift -->
     <h1 id="frontpage_heading">MANHATTAN PROJECT</h1>
