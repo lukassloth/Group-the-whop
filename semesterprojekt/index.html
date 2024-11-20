@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Manhatten Project</title>
+    <title>Manhattan Project</title>
     <link rel="shortcut icon" href="sun-icon.png"/>
 
-    <!-- Koden herunder er til at hente verdenskortet.
-    Det nederste script er indsat i det det øverste ikke virker uden -->
+    <!-- Koden herunder er til at hente verdenskortet -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson@3"></script>
-   
 </head>
 <body> 
     <label class="hamburger-menu">
         <input type="checkbox" />
-      </label>
-      <aside class="sidebar">
+    </label>
+    <aside class="sidebar">
         <nav>
           <table id="sidebar">
-        <tr><td><a href="index.html">Map</a></td></tr>
-        <tr><td><a href="/quiz/quiz.html">Quiz</a></td></tr>
-        <tr><td><a href="/statistics/statistics.html">Statistics</a></td></tr>
-        <tr><td><a href="index.html">Test2</a></td></tr>
-    </table>
+            <tr><td><a href="index.html">Map</a></td></tr>
+            <tr><td><a href="/quiz/quiz.html">Quiz</a></td></tr>
+            <tr><td><a href="/statistics/statistics.html">Statistics</a></td></tr>
+          </table>
         </nav>
-      </aside>
+    </aside>
 
-      <div class="buttons">
+    <div class="buttons">
         <button data-continent="World">World</button>
         <button data-continent="Africa">Africa</button>
         <button data-continent="Asia">Asia</button>
@@ -37,7 +34,7 @@
         <button data-continent="SouthAmerica">South America</button>
         <button data-continent="Australia">Australia</button>
     </div>
-   
+
     <!-- Hovedoverskrift -->
     <h1 id="frontpage_heading">MANHATTAN PROJECT</h1>
 
@@ -47,10 +44,7 @@
     <!-- Link til kortets JavaScript-fil -->
     <script src="your-map-script.js"></script>
 
-     <!-- Element til visning af information -->
+    <!-- Element til visning af information -->
     <p id="demo"></p>
-
-    
-    
 </body>
 </html>
