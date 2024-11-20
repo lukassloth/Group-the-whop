@@ -1,5 +1,19 @@
 {
   "dependencies": {
-    "d3": "^7.9.0"
-  }
+    "cors": "^2.8.5",
+    "d3": "^7.9.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "pg": "^8.13.1"
+  },
+  "name": "gruppe-7",
+  "version": "1.0.0",
+  "description": "Semesterprojekt for gruppe 7",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
