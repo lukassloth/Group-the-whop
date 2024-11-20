@@ -51,3 +51,12 @@ function barChart() {
 return svg.node();
 
 }
+
+const data = [
+  {letter: "A", frequency: 0.0851},
+  {letter: "B", frequency: 0.4551},
+  {letter: "C", frequency: 0.78}
+];
+
+const chart = barChart(data);
+document.getElementById("barchart").appendChild(chart);
