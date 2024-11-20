@@ -15,9 +15,8 @@ function buildQuiz(){ //Funktion, der bruges til at lave quizzen
                 answers.push( //Tilføjer HTML-elemter til answers array for hver svarmulighed
                     `<label> 
                         <input type="radio" name="question${questionNumber}" value="${letter}">
-                        ${letter} : 
                         ${currentQuestion.answers[letter]}
-                    </label>` // Container og "radio" knapper til hvert spørgsmål, der stilles op med a, b, c.. værdi og spørgsmål
+                    </label>` // Container og "radio" knapper til hvert spørgsmål, der stilles op spørgsmålene
                 );
             }
 
@@ -70,11 +69,14 @@ function showResults(){ //Funktion, der viser om svarerne er rigtige og markerer
         } else { // Else statement, hvis svaret er forkert
             answerContainers[questionNumber].style.color = 'red'; //Hvis svaret er forkert farves det rød
         };
-    
+
+        const correctAnswerText = currentQuestion.answers[currentQuestion.correctAnswer]; //Konst, der får teksten for det rigtige svar vist
+        const userAnswerText = userAnswer ? currentQuestion.answers[userAnswer] : "No answer"; //Konst, der får teksten for brugerens svar vist
+
     output += `<p>
       <strong>Question ${questionNumber + 1}: ${currentQuestion.question}</strong><br>
-      Your answer: ${userAnswer || "No answer"}<br>
-      Correct answer: ${currentQuestion.correctAnswer}<br>
+      Your answer: ${userAnswerText || "No answer"}<br>
+      Correct answer: ${correctAnswerText}<br>
       ${isCorrect ? '<span style="color: green;">Correct!</span>' : '<span style="color: red;">Incorrect</span>'}
     </p>`;
     //Tilføjer HTML struktur for hvert spørgsmål til output strengen
