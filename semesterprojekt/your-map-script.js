@@ -27,6 +27,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     svg.call(zoom);
 
+    // Variabel til at gemme data fra API'et
+    let countryData = {};
+
+    fetch('http://localhost:3001/api/data')
+    .then(response => response.json())
+    .then(data => {
+        console.log('API Response:', data); // Log hele API-responsen
+        countryData = {
+            area: data.area.reduce((acc, item) => {
+                acc[item.country] = item.area;
+                return acc;
+            }, {}),
+            sunshine_hours: data.sunshine_hours.reduce((acc, item) => {
+                acc[item.country] = item.year;
+                return acc;
+            }, {}),
+            consumption: data.consumption.reduce((acc, item) => {
+                acc[item.country] = item.consumption_twh;
+                return acc;
+            }, {})
+        };
+        console.log('Parsed Data:', countryData); // Log det parse-de countryData objekt
+    })
+    .catch(error => console.error('Error fetching data:', error));
+
+
     // Hent og vis kortdata
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
         .then(function (world) {
@@ -43,9 +69,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 .on("click", function (event, d) {
                     const countryName = d.properties.name;
 
+                    // Find data for landet
+                    const area = countryData.area[countryName] || 'N/A';
+                    const year = countryData.sunshine_hours[countryName] || 'N/A';
+                    const consumption_twh = countryData.consumption[countryName] || 'N/A';
+
                     // Vis data i tooltip
                     demo.innerHTML = `
-                        <strong>${countryName}</strong>
+                        <strong>${countryName}</strong><br>
+                        Area: ${area} km^2 <br> 
+                        Year: ${year} Hours <br>
+                        Consumption: ${consumption_twh} TWh
                     `;
                     demo.style.left = `${event.pageX + 10}px`;
                     demo.style.top = `${event.pageY - 30}px`;

@@ -5,6 +5,10 @@ require('dotenv').config();
 const app = express();
 const port = 3001;
 
+const cors = require('cors');
+
+app.use(cors());
+
 const pool = new Pool({
   host: process.env.PG_HOST,
   port: process.env.PG_PORT,
@@ -20,8 +24,8 @@ const pool = new Pool({
 app.get('/api/data', async (req, res) => {
   try {
     const areaResult = await pool.query('SELECT country, area FROM area');
-    const sunshineResult = await pool.query('SELECT country, year FROM sunshine_hours'); // Opdateret fra hours til year
-    const consumptionResult = await pool.query('SELECT country, consumption FROM consumption');
+    const sunshineResult = await pool.query('SELECT country, year FROM sunshine_hours');
+    const consumptionResult = await pool.query('SELECT country, consumption_twh FROM consumption');
 
     res.json({
       area: areaResult.rows,
