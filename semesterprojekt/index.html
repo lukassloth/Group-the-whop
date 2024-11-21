@@ -12,6 +12,20 @@
     <script src="https://unpkg.com/topojson@3"></script>
 </head>
 <body> 
+    <div id="popUpOverlay"></div>
+
+    <div id="popUp">
+        <h2 id="popUpHeader">Welcome to our site about solar energy</h2>
+        <p id="popUpText"> On this site you can click on our map to see <br>
+            <span id="bold"> how much of a countrys area that needs to be filled
+            with solar panels to accomodate the countrys energy usage.</span><br>
+            <br>
+            We have also made a <span id="bold"> quiz about solar panels and solar energy </span><br>
+            found in the sidebar alongside some <span id="bold"> statistics about solar energy.</span>
+        </p>
+        <button id="closePopUp"> Close!</button>
+    </div>
+
     <label class="hamburger-menu">
         <input type="checkbox" />
     </label>
@@ -41,8 +55,11 @@
     <!-- Kort-container -->
     <div id="map-container"></div>
 
+    <!-- Link til pop-up vinduets Javascript-fil -->
+    <script src="scripts/pop-up.js"></script>
+
     <!-- Link til kortets JavaScript-fil -->
-    <script src="your-map-script.js"></script>
+    <script src="scripts/your-map-script.js"></script>
 
     <!-- Element til visning af information -->
     <p id="demo"></p>
