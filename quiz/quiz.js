@@ -111,7 +111,7 @@ const myQuestions = [ // Konstant, der indeholder spørgsmålene og svarerne i e
         correctAnswer: "c" //Det korrekt svar
     },
     {
-        question: "Which country is the leader in solar enegy production?",
+        question: "Which country is the leader in solar energy production?",
         answers: {
             a: "United States of American",
             b: "Germany",
