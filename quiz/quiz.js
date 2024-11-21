@@ -34,8 +34,8 @@ function buildQuiz(){ //Funktion, der bruges til at lave quizzen
 };
 
 function showSlide(n) { //Funktion for hvilket slide, der vises med parameteren n
-    slides[currentSlide].classList.remove('active-slide'); //Fjerner class 'active-slide' fra den slide, der er aktiv
-    slides[n].classList.add('active-slide'); //Tilføjer class 'active-slide' til den næste slide
+    slides[currentSlide].classList.remove('activeSlide'); //Fjerner class 'active-slide' fra den slide, der er aktiv
+    slides[n].classList.add('activeSlide'); //Tilføjer class 'active-slide' til den næste slide
     
     currentSlide = n; //Opdaterer currentSlide så den viser det slide, den nu er på
     
@@ -111,7 +111,7 @@ const myQuestions = [ // Konstant, der indeholder spørgsmålene og svarerne i e
         correctAnswer: "c" //Det korrekt svar
     },
     {
-        question: "Which country is the leader in solar enegy production?",
+        question: "Which country is the leader in solar energy production?",
         answers: {
             a: "United States of American",
             b: "Germany",
@@ -176,7 +176,7 @@ buildQuiz(); //Her kaldes på funktionen buildQuiz
 
 const previousButton = document.getElementById("previous"); //Henter 'previous' knappen fra HTML-dokumentet
 const nextButton = document.getElementById("next"); //Henter 'next' knappen fra HTML-dokumentet
-const resulstContainer = document.getElementById("results-container"); //Henter results-container fra HTML-dokumentet
+const resulstContainer = document.getElementById("resultsContainer"); //Henter results-container fra HTML-dokumentet
 const slides = document.querySelectorAll(".slide"); //Henter alle HTML-elementer med slide class
 let currentSlide = 0; //Sørge for den starter på det første slide, og der holdes styr på hvilket slide den er på
 
@@ -205,7 +205,7 @@ submitButton.addEventListener("click", function() {
 });
 submitButton.addEventListener('click', showResults); //Når der klikkes på 'submit' knappen, så kaldes showResults
 submitButton.addEventListener('click', () => { //EventListener, der gør at siden scroller ned til resultatet når man trykker submit
-    document.getElementById('results-container').scrollIntoView({
+    document.getElementById('resultsContainer').scrollIntoView({
         behavior: "smooth"
     });
 });

@@ -98,7 +98,7 @@ button:hover{ /* Når der hovers over knappen */
   transition: opacity 0.5s; /* Hvor lang tid overgangen skal tage og hvad den omhandler*/
 }
 
-.active-slide{
+.activeSlide{
   opacity: 1; /* Gør den synlig kontra de andre slides */
   z-index: 2; /* Gør så den aktive slide er foran de andre slides */
 }
@@ -129,7 +129,7 @@ button:hover{ /* Når der hovers over knappen */
     font-size: 20px; /* Sætter font størrelsen til 20px */
 }
 
-#results-container{ /* Containeren alle resultaterne er i */
+#resultsContainer{ /* Containeren alle resultaterne er i */
   margin-top: 100px; /* Sætter 100px margin i toppen */
   background-color: #f2f2f2; /* Baggrundsfarve fra vores palette */
   width: 750px; /* Sætter bredden på boxen */
