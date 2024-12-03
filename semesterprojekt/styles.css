@@ -1,260 +1,283 @@
+/* Gør, at padding og border bliver inkluderet i elementets bredde og højde */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
+/* Styler hele body-elementet */
 body {
-    background-color: #d9c3a9;
-    cursor: url('sun-cursor.png'), auto; /* Bruger en brugerdefineret cursor med fallback til standard */
-    margin: 0;
-    
+  background-color: #d9c3a9; /* Sætter en baggrundsfarve */
+  cursor: url('sun-cursor.png'), auto; /* Bruger en custom cursor med fallback */
+  margin: 0; /* Fjerner standardmargen */
 }
 
+
+/* Styling af #frontpage_heading-elementet */
 #frontpage_heading {
-    margin-top: auto;
-    font-size: 60px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight:bold;
-    color: #404040;
-    text-align: center;
-    padding-top: 0px ;
-    z-index: 20000;
-    transition: opacity 0.5s ease;
-    }
-    
-    #frontpage_heading.hidden {
-        opacity: 0;
-        pointer-events: none;
-    }
+  margin-top: auto;  /*Automatiserer topmargen */
+  font-size: 60px; /* Skriftstørrelse */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
+  font-weight: bold; /* Gør teksten fed */
+  color: #404040; /* Tekstfarve */
+  text-align: center; /* Centrerer teksten */
+  z-index: 11; /* Sørger for, at den er bag andre elementer med højere z-index */
+  transition: opacity 0.5s ease; /* Glidende overgang for gennemsigtighed */
+  overflow: hidden; /* Skjuler overskydende indhold*/
+}
 
 
-/* Map-container styling */
+
+/* Når #frontpage_heading har klassen hidden */
+#frontpage_heading.hidden {
+  opacity: 0; /* Gør elementet gennemsigtigt */
+  pointer-events: none; /* Deaktiverer klik og andre pointer-events */
+  z-index: 11; /* Sørger for, at den er bag andre elementer med højere z-index */
+  overflow: hidden; /* Skjuler overskydende indhold*/
+}
+
+/* Styling af #map-container, som holder et SVG-kort */
 #map-container {
-    position: absolute;
-    top: 157px;
-    left: 165px;
-    scale: 145%;
-    z-index: -1;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed; /* Fastgør containeren i forhold til skærmen */
+  top: -1; /* Placerer containeren øverst */
+  left: 0; /* Placerer containeren til venstre */
+  width: 100%; /* Fylder hele bredden af skærmen */
+  height: 100%; /* Fylder hele højden af skærmen */
+  z-index: -1; /* Sørger for, at den er bag andre elementer med højere z-index */
+  justify-content: center; /* Centrerer indhold horisontalt */
+  align-items: center; /* Centrerer indhold vertikalt */
 }
 
+/* Styling af SVG-elementer indenfor #map-container */
 #map-container svg {
-    width: 900px; /* Fylder hele bredden af containeren */
-    height: 468px; /* Fylder hele højden af containeren */
-    object-fit: cover; /* Sikrer, at SVG'en fylder containeren uden at forvrænge */
-    align-items: center;
+  position: absolute; /* Tillader præcis placering i forhold til #map-container */
+  top: 50%; /* Flytter SVG'en 50% ned fra toppen af #map-container */
+  left: 50%; /* Flytter SVG'en 50% ind fra venstre af #map-container */
+  transform: translate(-54%, -57%); /* Flytter SVG'ens centrum yderligere mod venstre og op */
+  width: 100%; /* SVG'en fylder hele bredden af #map-container */
+  height: auto; /* Bevarer SVG'ens proportioner baseret på bredden */
+  overflow: visible; /* Tillader indhold uden for SVG'en at blive vist */
 }
 
+/* Styling af landene i SVG'en */
 path {
-    stroke-width: 0.6px;
-    fill: #6f8c52;
-    
+  stroke-width: 0.6px; /* Linjetykkelse */
+  fill: #6f8c52; /* Fyldfarve på landene*/
 }
+
+/* Når musen svæver over et land */
 path:hover {
-    fill: #4d7327;
-    
+  fill: #4d7327; /* Ændrer fyldfarve ved hover */
 }
 
-
-/* Styling til sidebar (fastgjort til venstre) */
+/* Styling af #sidebar, som er en fastgjort sidebar */
 #sidebar {
-    position: fixed; /* Gør sidebar fast på venstre side */
-    top: 5px; /* Placerer sidebar øverst */
-    left: 5px; /* Fastgør til venstre side */
-    width: 150px; /* Bredde på sidebar */
-    height: 300px; /* Fylder hele højden af vinduet */
-    background-color: #6f8c52; /* Baggrundsfarve på sidebar */
-    padding-top: 30px; /* Indre afstand til top i sidebar */
-    padding-bottom: 2px; /* Indre afstand til bund i sidebar */
-    text-align: center; /* Centrér tekst i sidebar */
-    z-index: 1000; /* Sørger for, at sidebar er ovenpå andet indhold */
-    border-radius: 15px; /* Gør hjørnerne afrundede med 15px */
-    cursor: auto;
+  position: fixed; /* Fast placering i forhold til viewport */
+  top: 5px; /* Afstand fra toppen */
+  left: 5px; /* Afstand fra venstre */
+  width: 150px; /* Sidebar bredde */
+  height: 300px; /* Sidebar højde */
+  background-color: #6f8c52; /* Baggrundsfarve */
+  padding-top: 30px; /* Indre afstand fra toppen */
+  padding-bottom: 2px; /* Indre afstand fra bunden */
+  text-align: center; /* Centrerer tekst */
+  z-index: 29; /* Sørger for, at sidebar er øverst */
+  border-radius: 15px; /* Afrundede hjørner */
+  cursor: auto; /* Standard cursor på sidebar */
 }
 
-/* Styling til links i sidebar */
+/* Styling af links indenfor sidebar */
 a {
-    display: block; /* Hvert link vises som en blok, fylder hele bredden */
-    margin: 10px 0; /* Afstand mellem hvert link */
-    color: #404040; /* Linktekstfarve */
-    text-decoration: none; /* Fjern understregning på links */
-    font-size: 20px; /* Standard tekststørrelse */
-    transition: font-size 0.3s ease; /* Glidende overgang for tekststørrelse */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bolder;
+  display: block; /* Hvert link opfører sig som en blok */
+  margin: 10px 0; /* Lodret afstand mellem links */
+  color: #404040; /* Tekstfarve */
+  text-decoration: none; /* Fjerner understregning */
+  font-size: 20px; /* Skriftstørrelse */
+  transition: font-size 0.3s ease; /* Glidende overgang ved ændring af størrelse */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
+  font-weight: bolder; /* Gør teksten fed */
+  z-index: 30; /* Sørger for, at elementet er øverst */
 }
 
-/* Hover-effekt til links */
+/* Når musen hover over links */
 a:hover {
-    color: #f2f2f2; /* Ændrer tekstfarve ved hover */
-    font-size: 25px; /* Større tekst ved hover */
+  color: #f2f2f2; /* Ændrer tekstfarve */
+  font-size: 25px; /* Forstørrer tekst */
 }
 
+/* CSS-variabler til menu knap */
 :root {
-  --bar-width: 60px;
-  --bar-height: 8px;
-  --hamburger-gap: 6px;
-  
-  --background: white;
-  --hamburger-margin: 15px;
-  --animation-timing: 200ms ease-in-out;
-  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  --bar-width: 60px; /* Bredde på menu bars */
+  --bar-height: 8px; /* Højde på menu bars */
+  --hamburger-gap: 6px; /* Afstand mellem bars */
+  --background: white; /* Baggrundsfarve på bars */
+  --hamburger-margin: 15px; /* Margin omkring menu bars */
+  --animation-timing: 200ms ease-in-out; /* animationstid */
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2); /* Højde på hele menu (sammenfoldet) */
 }
 
+/* Styling af menu knap */
 .hamburger-menu {
-  --x-width: calc(var(--hamburger-height) * 1.41421356237);
-
-  display: flex;
-  flex-direction: column;
-  gap: var(--hamburger-gap);
-  width: max-content;
-  position: absolute;
-  top: var(--hamburger-margin);
-  left: var(--hamburger-margin);
-  --foreground: #333;
-  cursor: pointer;
-  z-index: 1001; /* Sørger for, at burger-menuen er ovenpå alt andet */
+  --x-width: calc(var(--hamburger-height) * 1.41421356237); /* Diagonal linje til X-ikonet */
+  display: flex; /* Flex layout */
+  flex-direction: column; /* Vertikal retning */
+  gap: var(--hamburger-gap); /* Afstand mellem linjerne */
+  width: max-content; /* Dynamisk bredde */
+  position: absolute; /* Absolut placering */
+  top: var(--hamburger-margin); /* Afstand fra toppen */
+  left: var(--hamburger-margin); /* Afstand fra venstre */
+  --foreground: #333; /* Standard farve */
+  cursor: pointer; /* Hånd-cursor */
+  z-index: 21; /* Sørger for, at den er øverst */
 }
 
+/* Når menuen har et input, der er tjekket (click) */
 .hamburger-menu:has(input:checked) {
-  --foreground: white;
+  --foreground: white; /* Ændrer farven til hvid (farven på X) */
 }
 
-.hamburger-menu:has(input:focus-visible)::before,
-.hamburger-menu:has(input:focus-visible)::after,
-.hamburger-menu input:focus-visible {
-  border: 1px solid var(--background);
-  box-shadow: 0 0 0 1px var(--foreground);
-}
 
+/* Styling af menuens linjer */
 .hamburger-menu::before,
 .hamburger-menu::after,
 .hamburger-menu input {
-  content: "";
-  width: var(--bar-width);
-  height: var(--bar-height);
-  background-color: var(--foreground);
-  border-radius: 9999px;
-  transform-origin: left center;
-  transition: opacity var(--animation-timing), width var(--animation-timing),
-    rotate var(--animation-timing), translate var(--animation-timing),
-    background-color var(--animation-timing);
+  content: ""; /* Tilføjer indhold uden tekst */
+  width: var(--bar-width); /* Sætter bredden */
+  height: var(--bar-height); /* Sætter højden */
+  background-color: var(--foreground); /* Sætter  */
+  border-radius: 99px; /* runder enderne af (gør dem runde) */
+  transform-origin: left center; /* Rotationspunktet */
+  transition: opacity var(--animation-timing), /* Glidende overgange mellem åben og luk */
+      width var(--animation-timing),
+      rotate var(--animation-timing),
+      translate var(--animation-timing),
+      background-color var(--animation-timing);
 }
 
+/* Skjuler den midterste linje ved click */
 .hamburger-menu input {
-  appearance: none;
-  padding: 0;
-  margin: 0;
-  outline: none;
-  pointer-events: none;
+  appearance: none; /* Fjerner standard styling */
+  padding: 0; /* Ingen padding */
+  margin: 0; /* Ingen margin */
+  outline: none; /* Ingen outline */
+  pointer-events: none; /* Deaktiverer interaktion */
 }
 
+/* Skjuler den midterste linje ved click */
+.hamburger-menu input:checked {
+  opacity: 0; /* Gør den usynlig */
+  width: 0; /* Fjerner bredden */
+}
+
+/* Animation fra burger menu til X */
 .hamburger-menu:has(input:checked)::before {
-  rotate: 45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / -2);
+  rotate: 45deg; /* Drejer den første linje */
+  width: var(--x-width); /* Øger bredden */
+  translate: 0 calc(var(--bar-height) / -2); /* Flytter den */
 }
 
 .hamburger-menu:has(input:checked)::after {
-  rotate: -45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / 2);
+  rotate: -45deg; /* Drejer den sidste linje */
+  width: var(--x-width); /* Øger bredden */
+  translate: 0 calc(var(--bar-height) / 2); /* Flytter den */
 }
 
-.hamburger-menu input:checked {
-  opacity: 0;
-  width: 0;
-}
 
+
+/* Styling af den skjulte sidebar */
 .sidebar {
-  transition: translate var(--animation-timing);
-  translate: -100%;
-  padding: 0.5rem 1rem;
-  background-color: var(--foreground);
-  color: var(--background);
-  max-width: 10rem;
-  max-height:fit-content;
+  transition: translate var(--animation-timing); /* Glidende overgang ved translation */
+  translate: -100%; /* Flytter sidebar ud af syne */
+  padding: 0.5rem 1rem; /* Indre afstand */
+  background-color: var(--foreground); /* Baggrundsfarve */
+  color: var(--background); /* Tekstfarve */
+  max-width: 10rem; /* Maksimal bredde */
+  max-height: fit-content; /* Tilpasser højden */
 }
 
+/* Når hamburger-menuens input er tjekket, vises sidebar */
 .hamburger-menu:has(input:checked) + .sidebar {
-  translate: 0;
+  translate: 0; /* Flytter sidebar på plads */
 }
 
+/* Styling af tooltip (info om lande) */
 #demo {
-    position: absolute;
-    color: #404040;
-    background-color: #f2f2f2;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bolder;
-    visibility: hidden; /* Skjules som standard */
-    pointer-events: none;
+  position: absolute; /* Absolut placering */
+  color: #404040; /* Tekstfarve */
+  background-color: #f2f2f2; /* Baggrundsfarve */
+  padding: 5px 10px; /* Indre afstand */
+  border-radius: 4px; /* Afrundede hjørner */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
+  font-weight: bolder; /* Fed tekst */
+  visibility: hidden; /* Skjules som standard */
+  pointer-events: none; /* Ingen interaktion muligt */
 }
 
-
+/* Styling af zoom-knapper (Placering) */
 .buttons {
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
+  position: absolute; /* Absolut placering */
+  bottom: 20px; /* Afstand fra bunden */
+  left: 10px; /* Afstand fra venstre */
+  display: flex; /* Flex layout */
+  flex-direction: column; /* Vertikal retning */
+  gap: 10px; /* Afstand mellem knapper */
+  z-index: 30; /* Sørger for, at de er øverst */
 }
 
+/* Styling af zoom-knapper (Udseende) */
 .buttons button {
-    padding: 10px 20px;
-    background-color: #6f8c52;
-    color: white;
-    border:groove;
-    border-color: #404040;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px 20px; /* Indre afstand */
+  background-color: #6f8c52; /* Baggrundsfarve */
+  color: white; /* Tekstfarve */
+  border: groove; /* Groove-style kant */
+  border-color: #404040; /* Kantfarve */
+  border-radius: 4px; /* Afrundede hjørner */
+  cursor: pointer; /* Hånd-cursor */
 }
 
+/* Hover-effekt på zoom-knapper */
 .buttons button:hover {
-    background-color: #5a733f;
+  background-color: #5a733f; /* Ændrer baggrundsfarve */
 }
 
+/* Styling af popup-vindue */
 #popUp {
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  background: white;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  z-index: 1000;
-  display: none;
-}
-#popUpOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 999;
-  display: none;
-}
-#closePopUp {
-  background: #6f8c52;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-#closePopUp button:hover {
-  background: #0056b3;
+  position: fixed; /* Fast placering */
+  text-align: center; /* Centrerer tekst */
+  top: 50%; /* Centrerer vertikalt */
+  left: 50%; /* Centrerer horisontalt */
+  transform: translate(-50%, -50%); /* Gør det præcis centreret */
+  width: 500px; /* Bredde */
+  background: white; /* Baggrundsfarve */
+  padding: 20px; /* Indre afstand */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Tilføjer skygge */
+  border-radius: 10px; /* Afrundede hjørner */
+  z-index: 50; /* Sørger for, at den er øverst */
+  display: none; /* Skjules som standard */
+
 }
 
-#bold{
-  font-weight: bold;
+/* Overlay til popup */
+#popUpOverlay {
+  position: fixed; /* Fast placering */
+  top: 0; /* Øverst */
+  left: 0; /* Til venstre */
+  width: 100%; /* Fylder hele skærmbredden */
+  height: 100%; /* Fylder hele skærmhøjden */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 49; /* Sørger for, at det er under popup */
+  display: none; /* Skjules som standard */
+}
+
+/* Lukke-knap til popup */
+#closePopUp {
+  background: #6f8c52; /* Baggrundsfarve */
+  color: white; /* Tekstfarve */
+  border: none; /* Ingen kant */
+  padding: 10px 20px; /* Indre afstand */
+  cursor: pointer; /* Hånd-cursor */
+  border-radius: 5px; /* Afrundede hjørner */
+}
+
+/* Gør teksten fed for elementer med id 'bold' */
+#bold {
+  font-weight: bold; /* Fed tekst */
 }
