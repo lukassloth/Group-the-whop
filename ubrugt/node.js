@@ -1,3 +1,4 @@
+/*
 const express = require('express');
 const { Pool } = require('pg');
 require('dotenv').config();
@@ -45,3 +46,4 @@ app.get('/api/data', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+*/
