@@ -3,54 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Manhattan Project</title>
-    <link rel="shortcut icon" href="sun-icon.png"/>
+    <link rel="stylesheet" href="styles.css"> <!-- Linker til CSS fil -->
+    <title>SUNDOWN AVENUE</title> <!-- Navnet i tab -->
+    <link rel="shortcut icon" href="sun-icon.png"/> <!-- Ikon i tab -->
 
     <!-- Koden herunder er til at hente verdenskortet -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson@3"></script>
 </head>
 <body> 
-    <div id="popUpOverlay"></div>
+    <div id="popUpOverlay"></div> <!-- Overlay div, der indeholder popUp vinduet -->
 
-    <div id="popUp">
-        <h2 id="popUpHeader">Welcome to our site about solar energy</h2>
-        <p id="popUpText"> On this site you can click on our map to see <br>
+    <div id="popUp"> <!-- div til popUp vinduet -->
+        <h2 id="popUpHeader">Welcome to our site about solar energy</h2> <!-- Overskrift i popUp vinduet -->
+        <p id="popUpText"> On this site you can click on our map to see <br> <!-- Brødteksten i popUp vinduet -->
             <span id="bold"> how much of a countrys area that needs to be filled
             with solar panels to accommodate the countrys energy usage.</span><br>
             <br>
             We have also made a <span id="bold"> quiz about solar panels and solar energy </span><br>
             found in the sidebar alongside some <span id="bold"> statistics about solar energy.</span>
         </p>
-        <button id="closePopUp"> Get exploring!</button>
+        <button id="closePopUp"> Get exploring!</button> <!-- Knappen, der lukker popUp vinduet -->
     </div>
 
-    <label class="hamburger-menu">
-        <input type="checkbox" />
+    <label class="hamburger-menu"> <!-- Label til dropdown menu -->
+        <input type="checkbox" /> <!-- Bruges til at styre om label er åben eller lukket -->
     </label>
-    <aside class="sidebar">
-        <nav>
-          <table id="sidebar">
-            <tr><td><a href="index.html">Map</a></td></tr>
-            <tr><td><a href="/quiz/quiz.html">Quiz</a></td></tr>
-            <tr><td><a href="/statistics/statistics.html">Statistics</a></td></tr>
+    <aside class="sidebar"> <!-- Aside er brugt, da indholdet er sideløbende med hovedindholdet -->
+        <nav> <!-- Container til navigationsindhold -->
+          <table id="sidebar"> <!-- Tabel til indholdet af sidebar -->
+            <tr><td><a href="index.html">Map</a></td></tr> <!-- tab til siden med kort -->
+            <tr><td><a href="/quiz/quiz.html">Quiz</a></td></tr> <!-- tab til siden med quiz -->
+            <tr><td><a href="/statistics/statistics.html">Statistics</a></td></tr> <!-- tab til siden med statistik -->
           </table>
         </nav>
     </aside>
 
-    <div class="buttons">
-        <button data-continent="World">World</button>
-        <button data-continent="Africa">Africa</button>
-        <button data-continent="Asia">Asia</button>
-        <button data-continent="Europe">Europe</button>
-        <button data-continent="NorthAmerica">North America</button>
-        <button data-continent="SouthAmerica">South America</button>
-        <button data-continent="Australia">Australia</button>
+    <div class="buttons"> <!-- Div til knapperne der hører til kortet -->
+        <button data-continent="World">World</button> <!-- Knappen, der bruges til at zoome ud på hele verdenen -->
+        <button data-continent="Africa">Africa</button> <!-- Knap, der zoomer ind på Afrika -->
+        <button data-continent="Asia">Asia</button> <!-- Knap, der zoomer ind på Asien -->
+        <button data-continent="Europe">Europe</button> <!-- Knap, der zoomer ind på Europa -->
+        <button data-continent="NorthAmerica">North America</button> <!-- Knap, der zoomer ind på Nordamerika -->
+        <button data-continent="SouthAmerica">South America</button> <!-- Knap, der zoomer ind på Sydamerika -->
+        <button data-continent="Australia">Australia</button> <!-- Knap, der zoomer ind på Australien -->
     </div>
 
     <!-- Hovedoverskrift -->
-    <h1 id="frontpage_heading">MANHATTAN PROJECT</h1>
+    <h1 id="frontpage_heading">SUNDOWN AVENUE</h1>
 
     <!-- Kort-container -->
     <div id="map-container"></div>
