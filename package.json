@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
     "d3": "^7.9.0",
@@ -9,7 +10,7 @@
   "name": "gruppe-7",
   "version": "1.0.0",
   "description": "Semesterprojekt for gruppe 7",
-  "main": "node.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

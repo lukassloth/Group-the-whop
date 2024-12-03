@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let countryData = {};
     // Initialiserer et objekt til at gemme data om lande
 
-    fetch('http://localhost:3001/api/data')
+    fetch('api/data')
     .then(response => response.json())
     .then(data => {
         console.log('API Response:', data);
