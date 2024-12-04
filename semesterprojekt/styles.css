@@ -44,6 +44,7 @@ body {
   z-index: -1; /* Sørger for, at den er bag andre elementer med højere z-index */
   justify-content: center; /* Centrerer indhold horisontalt */
   align-items: center; /* Centrerer indhold vertikalt */
+  margin-top: 40px;
 }
 
 /* Styling af SVG-elementer indenfor #map-container */
