@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Angiver, at kortet skal tegnes baseret på projektionen
 
     const zoom = d3.zoom()
-        .scaleExtent([1, 8])
+        .scaleExtent([0, 8])
         .on("zoom", (event) => {
             svg.selectAll("g").attr("transform", event.transform);
         });
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Gendan zoom-funktionaliteten for kontinenter
-    const continentBounds = {
+   /* const continentBounds = {
         Africa: [[-40, -41], [70, 58]],          // Afrika
         Asia: [[30, -15], [180, 75]],           // Asien
         Europe: [[-30, 32], [60, 78]],          // Europa
@@ -131,8 +131,19 @@ document.addEventListener('DOMContentLoaded', function () {
         Australia: [[105, -50], [160, 5]],      // Australien
         World: [[-180, -85], [180, 95]]         // World (virker ik)
         // Bounding box-koordinater for hvert kontinent og hele verden
-    };
+    };*/
     
+    const continentBounds = {
+        Africa: [[-50, -51], [80, 68]],
+        Asia: [[30, -15], [172, 73]],
+        Europe: [[-30, 32], [60, 78]],
+        MiddleEast: [[0, 0],[100, 70]],
+        NorthAmerica: [[-180, 20], [-50, 80]],
+        SouthAmerica: [[-100, -65], [-20, 40]],
+        Australia: [[115, -60], [170, 5]],
+        World: [[0, 0], [0, 0]]
+    };
+
     console.log("Initial zoom state:", d3.zoomIdentity);
     // Logger den oprindelige zoom-tilstand (uden ændringer)
 
