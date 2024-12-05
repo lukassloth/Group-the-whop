@@ -67,7 +67,8 @@ country VARCHAR (100),
 area decimal (10, 2),
 sunshine_hours decimal (10, 2),
 consumption_twh decimal (10, 2),
-avg_land_i_procent decimal (10, 2)
+avg_land_i_procent decimal (10, 2),
+land_km2 decimal (10, 2)
 );
     `);
 
@@ -90,7 +91,7 @@ avg_land_i_procent decimal (10, 2)
         WITH CSV HEADER
     `, 'db/solskinstimer.csv');
     await copyIntoTable(db, `
-        COPY gross_data (country, area, sunshine_hours, consumption_twh, avg_land_i_procent)
+        COPY gross_data (country, area, sunshine_hours, consumption_twh, avg_land_i_procent, land_km2)
         FROM STDIN
         WITH CSV HEADER
     `, 'db/samlet_data.csv');
