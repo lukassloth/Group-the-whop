@@ -33,11 +33,13 @@ app.get('/api/data', async (req, res) => {
       const areaResult = await pool.query('SELECT country, area FROM area');
       const sunshineResult = await pool.query('SELECT country, year FROM sunshine_hours');
       const consumptionResult = await pool.query('SELECT country, consumption_twh FROM consumption');
+      const grossResult = await pool.query('SELECT * FROM gross_data');
   
       res.json({
         area: areaResult.rows,
         sunshine_hours: sunshineResult.rows,
         consumption: consumptionResult.rows,
+        gross: grossResult.rows,
       });
     } catch (error) {
       console.error('Error fetching data from database:', error);

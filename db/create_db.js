@@ -26,6 +26,7 @@ try {
         DROP TABLE IF EXISTS area;
         DROP TABLE IF EXISTS consumption;
         DROP TABLE IF EXISTS sunshine_hours;
+        DROP TABLE IF EXISTS gross_data;
 
         CREATE TABLE area (
 country VARCHAR(100) PRIMARY KEY,
@@ -60,6 +61,14 @@ nov NUMERIC(10, 2),
 dec NUMERIC(10, 2),
 year NUMERIC(10, 2)
 );
+
+CREATE TABLE gross_data (
+country VARCHAR (100),
+area decimal (10, 2),
+sunshine_hours decimal (10, 2),
+consumption_twh decimal (10, 2),
+avg_land_i_procent decimal (10, 2)
+);
     `);
 
     console.log('Tables recreated.');
@@ -80,6 +89,11 @@ year NUMERIC(10, 2)
         FROM STDIN
         WITH CSV HEADER
     `, 'db/solskinstimer.csv');
+    await copyIntoTable(db, `
+        COPY gross_data (country, area, sunshine_hours, consumption_twh, avg_land_i_procent)
+        FROM STDIN
+        WITH CSV HEADER
+    `, 'db/samlet_data.csv');
 
     console.log('Data copied.');
 } catch (err) {
