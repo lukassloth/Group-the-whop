@@ -63,8 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
             consumption: data.consumption.reduce((acc, item) => {
                 acc[item.country] = item.consumption_twh;
                 return acc;
-            }, {})
+            }, {}),
             // Reducerer array af consumption-data til et objekt med lande som nøgler
+
+            gross_data: data.gross_data.reduce((acc, item) => {
+                acc[item.country] = item.avg_land_i_procent;
+                return acc;
+            }, {})
+            // Reducerer array af gross_data til et objekt med lande som nøgler
         };
         console.log('Parsed Data:', countryData);
         // Logger det samlede countryData-objekt
@@ -94,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const area = countryData.area[countryName] || 'N/A';
                     const year = countryData.sunshine_hours[countryName] || 'N/A';
                     const consumption_twh = countryData.consumption[countryName] || 'N/A';
+                    const avg_land_i_procent = countryData.gross_data[countryName] || 'N/A';
                     // Henter specifik data for landet fra countryData
 
                     // Vis data i tooltip
@@ -101,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         <strong>${countryName}</strong><br>
                         Area: ${area} km^2 <br> 
                         Year: ${year} Hours <br>
-                        Consumption: ${consumption_twh} TWh
+                        Consumption: ${consumption_twh} TWh <br>
+                        Land i procent: ${avg_land_i_procent} %
                     `;
                     demo.style.left = `${event.pageX + 10}px`;
                     demo.style.top = `${event.pageY - 30}px`;
