@@ -67,10 +67,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Reducerer array af consumption-data til et objekt med lande som nøgler
 
             gross_data: data.gross_data.reduce((acc, item) => {
-                acc[item.country] = item.avg_land_i_procent;
+                acc[item.country] = { 
+                    avg_land_i_procent: item.avg_land_i_procent,
+                    land_km2: item.land_km2
+                };
                 return acc;
-            }, {})
+            }, {}),
             // Reducerer array af gross_data til et objekt med lande som nøgler
+
         };
         console.log('Parsed Data:', countryData);
         // Logger det samlede countryData-objekt
@@ -100,7 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     const area = countryData.area[countryName] || 'N/A';
                     const year = countryData.sunshine_hours[countryName] || 'N/A';
                     const consumption_twh = countryData.consumption[countryName] || 'N/A';
-                    const avg_land_i_procent = countryData.gross_data[countryName] || 'N/A';
+                    const avg_land_i_procent = countryData.gross_data[countryName]?.avg_land_i_procent || 'N/A';
+                    const land_km2 = countryData.gross_data[countryName]?.land_km2 || 'N/A';
                     // Henter specifik data for landet fra countryData
 
                     // Vis data i tooltip
@@ -109,7 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         Area: ${area} km^2 <br> 
                         Year: ${year} Hours <br>
                         Consumption: ${consumption_twh} TWh <br>
-                        Land i procent: ${avg_land_i_procent} %
+                        Land i procent: ${avg_land_i_procent} % <br>
+                        Land i km2: ${land_km2} km2
                     `;
                     demo.style.left = `${event.pageX + 10}px`;
                     demo.style.top = `${event.pageY - 30}px`;
