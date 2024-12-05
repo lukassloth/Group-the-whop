@@ -111,11 +111,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Vis data i tooltip
                     demo.innerHTML = `
                         <strong>${countryName}</strong><br>
-                        Area: ${area} km^2 <br> 
-                        Year: ${year} Hours <br>
-                        Consumption: ${consumption_twh} TWh <br>
-                        Land i procent: ${avg_land_i_procent} % <br>
-                        Land i km2: ${land_km2} km2
+                        Accumilated landmass: ${area} km² <br> 
+                        Yearly hours of sun: ${year} hours <br>
+                        Yearly energy consumption: ${consumption_twh} tWh <br>
+                        Required landmass in percent: ${avg_land_i_procent} % <br>
+                        Required landmass in km²: ${land_km2} km²
                     `;
                     demo.style.left = `${event.pageX + 10}px`;
                     demo.style.top = `${event.pageY - 30}px`;
