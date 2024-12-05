@@ -81,8 +81,10 @@ path:hover {
   padding-bottom: 2px; /* Indre afstand fra bunden */
   text-align: center; /* Centrerer tekst */
   z-index: 29; /* Sørger for, at sidebar er øverst */
-  border-radius: 15px; /* Afrundede hjørner */
+  border-radius: 10px; /* Afrundede hjørner */
   cursor: auto; /* Standard cursor på sidebar */
+  border: groove; /* Sætter groove på kanten */
+  border-color: #f2f2f2; /* Sætter kanten til hvid */
 }
 
 /* Styling af links indenfor sidebar */
@@ -227,10 +229,10 @@ a:hover {
 .buttons button {
   padding: 10px 20px; /* Indre afstand */
   background-color: #6f8c52; /* Baggrundsfarve */
-  color: white; /* Tekstfarve */
-  border: groove; /* Groove-style kant */
-  border-color: #404040; /* Kantfarve */
-  border-radius: 4px; /* Afrundede hjørner */
+  color: #f2f2f2; /* Tekstfarve */
+  border: groove; /* Fjerner kanten */
+  border-color: #f2f2f2;
+  border-radius: 10px; /* Afrundede hjørner */
   cursor: pointer; /* Hånd-cursor */
 }
 
@@ -246,13 +248,15 @@ a:hover {
   top: 50%; /* Centrerer vertikalt */
   left: 50%; /* Centrerer horisontalt */
   transform: translate(-50%, -50%); /* Gør det præcis centreret */
-  width: 500px; /* Bredde */
+  width: 550px; /* Bredde */
+  height: 300px; /* Højde */
   background: white; /* Baggrundsfarve */
   padding: 20px; /* Indre afstand */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Tilføjer skygge */
   border-radius: 10px; /* Afrundede hjørner */
   z-index: 50; /* Sørger for, at den er øverst */
   display: none; /* Skjules som standard */
+  font-family: 'Arial', sans-serif; /* Sætter brødtekstens font */
 
 }
 
@@ -272,13 +276,14 @@ a:hover {
 #closePopUp {
   background: #6f8c52; /* Baggrundsfarve */
   color: white; /* Tekstfarve */
-  border: none; /* Ingen kant */
+  border: groove; /* Ingen kant */
+  border-color: #f2f2f2;
   padding: 10px 20px; /* Indre afstand */
   cursor: pointer; /* Hånd-cursor */
-  border-radius: 5px; /* Afrundede hjørner */
+  border-radius: 10px; /* Afrundede hjørner */
+  margin-top: 15px; /* Margin i toppen */
 }
 
-/* Gør teksten fed for elementer med id 'bold' */
-#bold {
-  font-weight: bold; /* Fed tekst */
+#closePopUp:hover {
+  background-color: #5a733f; /* Farve når man hover over knappen */
 }
