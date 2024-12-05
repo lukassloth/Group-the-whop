@@ -1,0 +1,105 @@
+/* Styler hele body-elementet */
+body {
+    background-color: #d9c3a9; /* Sætter en baggrundsfarve */
+    cursor: url('sun-cursor.png'), auto; /* Bruger en custom cursor med fallback */
+    margin: 0; /* Fjerner standardmargen */
+  }
+
+  /* Styling af #frontpage_heading-elementet */
+h1 {
+    margin-top: 20px;  /*Automatiserer topmargen */
+    font-size: 50px; /* Skriftstørrelse */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
+    font-weight: bold; /* Gør teksten fed */
+    color: #404040; /* Tekstfarve */
+    text-align: center; /* Centrerer teksten */
+    z-index: 11; /* Sørger for, at den er bag andre elementer med højere z-index */
+    transition: opacity 0.5s ease; /* Glidende overgang for gennemsigtighed */
+    overflow: hidden; /* Skjuler overskydende indhold*/
+  }
+
+ /* Styling til "about" sektionen */
+#about {
+    background-color: #f9f9f9; /* Lys baggrundsfarve for god kontrast */
+    border-radius: 10px; /* Runde hjørner for et blødt design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Let skygge for dybde */
+    padding: 20px 40px; /* Indre afstand for luft omkring teksten */
+    max-width: 800px; /* Maksimal bredde for bedre læsbarhed */
+    margin: 40px auto; /* Centrerer sektionen på siden */
+    font-family: 'Arial', sans-serif; /* Klar og moderne skrifttype */
+    line-height: 1.6; /* Gør teksten lettere at læse */
+    color: #333; /* Dyb grå farve for tekst */
+}
+
+/* Styling til overskrifter */
+#about h2 {
+    font-size: 28px; /* Gør overskriften fremtrædende */
+    color: #2a4d69; /* Mørkeblå farve for at skille sig ud */
+    text-align: center; /* Centrer overskriften */
+    margin-bottom: 20px; /* Læg afstand under overskriften */
+}
+
+#about h3 {
+    font-size: 22px; /* Mellemstor skriftstørrelse til underoverskrifter */
+    color: #537a91; /* Blødere blå farve til variation */
+    margin-top: 20px; /* Læg afstand over underoverskrifter */
+}
+
+/* Styling til tekst */
+#about p {
+    margin-bottom: 15px; /* Læg afstand under afsnit */
+    text-align: justify; /* Justerer teksten for pæn linjejustering */
+}
+
+/* Styling til lister */
+#about ul {
+    margin: 15px 0 15px 20px; /* Afstand over og under listen, med indryk */
+    padding: 0; /* Fjern indre padding */
+    list-style-type: disc; /* Brug standard punkttegn */
+}
+
+#about ul li {
+    margin-bottom: 10px; /* Gør hver punkt klar og adskilt */
+}
+
+/* Fremhæv vigtige tekstdele */
+#about strong {
+    color: #2a4d69; /* Gør fremhævet tekst mørkeblå */
+}
+
+
+  button{ /* Knapperne */
+    font-size: 16px; /* Størrelse på teksten */
+    background-color: #6f8c52; /* Baggrundsfarve valgt fra vores farvepalette */
+    color: #f2f2f2; /* Farven på teksten valgt fra vores palette */
+    position: fixed; /* Gør så knappen bliver i venstre hjørne når man scroler ned ad siden */
+    border: 0px; /* Fjerner border */
+    border-radius: 10px; /* Brugt for at gøre hjørnerne runde */
+    padding: 10px; /* Sætter 10px padding rundt om  */
+    cursor: pointer; /* Gør så musen bliver en 'pointer' når man er på knappen */
+    margin-bottom: 20px; /* Sætter 20px margin i toppen */
+    margin-top: 1px; /* Sætter 20px margin i bunden */
+    margin-left: 10px; /* Giver 10px margin til venstre */
+    margin-right: 10px; /* Giver 10px margin til højre */
+    left: 0; /* Refererer til positionen af knappen */
+  }
+  
+  button:hover{ /* Når der hovers over knappen */
+    background-color: #4d7327; /* Baggrundsfarve der kommer frem når man hover over knappen valgt fra vores palette */
+  }
+
+  #container {
+    height:fit-content; /* Sætter højden på containeren */
+    background-color: #f2f2f2; /* Baggrundsfarve */
+    margin-top: 60px; /* Sætter en 60px margin på toppen */
+    display: flex; /* Gør det muligt at rykke rundt på tingene i div */
+    width: 1200px; /* Sætter bredden på containeren */
+    border-radius: 10px; /* Skaber runde hjørner */
+    justify-content: center; /* Centrerer indhold horisontalt */
+    align-items:center; /* Centrerer indhold vertikalt */
+    padding-top: 20px; /* Lægger 20px padding i toppen */
+    position: absolute; /* Gør det muligt at placere containeren i forhold til skærmen */
+    top: 50%; /* Placerer containerens top i midten af skærmen */
+    left: 50%; /* Placerer containerens venstre kant i midten af skærmen */
+    transform: translate(-50%, -50%); /* Flytter containeren tilbage med halvdelen af dens bredde og højde */
+}

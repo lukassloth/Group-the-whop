@@ -75,7 +75,7 @@ path:hover {
   top: 5px; /* Afstand fra toppen */
   left: 5px; /* Afstand fra venstre */
   width: 150px; /* Sidebar bredde */
-  height: 300px; /* Sidebar højde */
+  height: 250px; /* Sidebar højde */
   background-color: #6f8c52; /* Baggrundsfarve */
   padding-top: 30px; /* Indre afstand fra toppen */
   padding-bottom: 2px; /* Indre afstand fra bunden */
@@ -88,7 +88,7 @@ path:hover {
 /* Styling af links indenfor sidebar */
 a {
   display: block; /* Hvert link opfører sig som en blok */
-  margin: 10px 0; /* Lodret afstand mellem links */
+  margin: 5px 0; /* Lodret afstand mellem links */
   color: #404040; /* Tekstfarve */
   text-decoration: none; /* Fjerner understregning */
   font-size: 20px; /* Skriftstørrelse */
