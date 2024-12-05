@@ -39,7 +39,7 @@ app.get('/api/data', async (req, res) => {
         area: areaResult.rows,
         sunshine_hours: sunshineResult.rows,
         consumption: consumptionResult.rows,
-        gross: grossResult.rows,
+        gross_data: grossResult.rows,
       });
     } catch (error) {
       console.error('Error fetching data from database:', error);
