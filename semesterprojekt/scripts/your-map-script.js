@@ -165,16 +165,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Vis data i tooltip
                     demo2.innerHTML = `
                         <h4>${countryName}</h4>
-                        <h3>Area:</h3>
-                        ${area} km^2 <br>
-                        <h3>Year:</h3>
+                        <h3>Accumilated landmass:</h3>
+                        ${area} km² <br>
+                        <h3>Yearly hours of sun:</h3>
                         ${year} Hours <br>
-                        <h3>Consumption:</h3>
+                        <h3>Yearly energy consumption:</h3>
                         ${consumption_twh} TWh <br>
-                        <h3>Land i procent:</h3>
+                        <h3>Required landmass in percent:</h3>
                         ${avg_land_i_procent} % <br>
-                        <h3>Land i km2:</h3>
-                        ${land_km2} km2
+                        <h3>Required landmass in km²:</h3>
+                        ${land_km2} km²
                     `;
                     demo2.style.left = `${event.pageX + 10}px`;
                     demo2.style.top = `${event.pageY - 30}px`;
