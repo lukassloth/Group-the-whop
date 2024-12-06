@@ -7,8 +7,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Tooltip element
     const demo = document.getElementById("demo");
+    const demo2 = document.getElementById("demo2");
     const heading = document.getElementById("frontpage_heading");
     // Henter HTML-elementer til tooltip og overskrift
+
+    // Synkronisering af demo2 og sidebar2
+    function updateSidebar2Visibility() {
+        const sidebar2 = document.querySelector('.sidebar2'); 
+        // Henter elementet med klassen 'sidebar2', som er den højre sidebar.
+    
+        const demo2 = document.getElementById('demo2'); 
+        // Henter elementet med id'et 'demo2', som bruges til at vise tooltip-data.
+    
+        if (demo2.style.visibility === 'visible') { 
+            // Tjekker om 'demo2' er synlig (dvs. om dens visibility-stil er sat til 'visible').
+            sidebar2.classList.add('visible'); 
+            // Hvis demo2 er synlig, tilføjes klassen 'visible' til 'sidebar2', så den glider ind på skærmen.
+        } else { 
+            // Hvis demo2 ikke er synlig.
+            sidebar2.classList.remove('visible'); 
+            // Klassen 'visible' fjernes fra 'sidebar2', så den glider ud af skærmen.
+        }
+    }
+    
+    
+    // Når demo2 skal vises
+    function showDemo2(content) {
+        const demo2 = document.getElementById('demo2');
+        const sidebar2 = document.querySelector('.sidebar2');
+        demo2.innerHTML = content; // Opdater indhold
+        demo2.style.visibility = 'visible'; // Gør synlig
+        sidebar2.classList.add('visible'); // Flyt sidebar ind på skærmen
+    }
+    
+    // Når demo2 skal skjules
+    function hideDemo2() {
+        const demo2 = document.getElementById('demo2');
+        const sidebar2 = document.querySelector('.sidebar2');
+        demo2.style.visibility = 'hidden'; // Skjul demo2
+        sidebar2.classList.remove('visible'); // Flyt sidebar ud af skærmen
+    }
+    
 
     // Opret SVG
     const svg = d3.select("#map-container")
@@ -110,12 +149,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Vis data i tooltip
                     demo.innerHTML = `
-                        <strong>${countryName}</strong><br>
-                        Area: ${area} km^2 <br> 
-                        Year: ${year} Hours <br>
-                        Consumption: ${consumption_twh} TWh <br>
-                        Land i procent: ${avg_land_i_procent} % <br>
-                        Land i km2: ${land_km2} km2
+                       <strong> ${avg_land_i_procent} % </strong> of <strong>${countryName}</strong><br>
+                        covered in solar panels
+                        
                     `;
                     demo.style.left = `${event.pageX + 10}px`;
                     demo.style.top = `${event.pageY - 30}px`;
@@ -124,6 +160,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     event.stopPropagation();
                     // Forhindrer klik på SVG at udløse andre klik-handlere
+
+                
+                    // Vis data i tooltip
+                    demo2.innerHTML = `
+                        <h4>${countryName}</h4>
+                        <h3>Area:</h3>
+                        ${area} km^2 <br>
+                        <h3>Year:</h3>
+                        ${year} Hours <br>
+                        <h3>Consumption:</h3>
+                        ${consumption_twh} TWh <br>
+                        <h3>Land i procent:</h3>
+                        ${avg_land_i_procent} % <br>
+                        <h3>Land i km2:</h3>
+                        ${land_km2} km2
+                    `;
+                    demo2.style.left = `${event.pageX + 10}px`;
+                    demo2.style.top = `${event.pageY - 30}px`;
+                    demo2.style.visibility = "visible";
+                    // Opdaterer og viser tooltip med landets data
+
+document.querySelector(".sidebar2").classList.add("visible");
                 });
         })
         .catch(error => console.error('Error loading map data:', error));
@@ -132,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Skjul tooltip'en, når der klikkes uden for lande eller knapper
     svg.on("click", function () {
         demo.style.visibility = "hidden";
+        hideDemo2(); // Skjul både demo2 og sidebar2
         // Skjuler tooltip
     });
 
