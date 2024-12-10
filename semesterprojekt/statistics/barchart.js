@@ -55,7 +55,7 @@ function barChart(data) {
   return svg.node();
 }
 
-// Replace the d3.csv() call with this:
+// Replace the d3.csv() call with this
 fetch('/api/barchart-data')
   .then(response => response.json())
   .then(data => {
