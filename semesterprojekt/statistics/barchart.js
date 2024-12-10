@@ -12,7 +12,7 @@ function barChart(data) {
       .padding(0.1);
 
   const y = d3.scaleLinear()
-      .domain([0, d3.max(data, d => d.consumption_twh)]) // Use 'consumption_twh' from CSV
+      .domain([0, 50000]) // Use 'consumption_twh' from CSV
       .range([height - marginBottom, marginTop]);
 
   const svg = d3.create("svg")
@@ -50,24 +50,19 @@ function barChart(data) {
           .attr("y", 10)
           .attr("fill", "currentColor")
           .attr("text-anchor", "start")
-          .text("↑ Average Land (%)"));
+          .text("↑ Energy consumption (tWh)"));
 
   return svg.node();
 }
 
-// Load and process the CSV data
-d3.csv("../../db/samlet_data.csv").then(function(csvData) {
-  csvData.forEach(d => {
-    d.consumption_twh = +d.consumption_twh; // Convert to number
+// Replace the d3.csv() call with this:
+fetch('/api/barchart-data')
+  .then(response => response.json())
+  .then(data => {
+    console.log("Loaded data:", data);
+    const chart = barChart(data);
+    document.getElementById("barchart").appendChild(chart);
+  })
+  .catch(function(error) {
+    console.log("Error loading the data:", error);
   });
-
-  console.log("Loaded data:", csvData); // Log the data to check its structure
-
-  // Sort the data by consumption_twh in descending order and take the top 20
-  const top20Data = csvData.sort((a, b) => b.consumption_twh - a.consumption_twh).slice(0, 40);
-
-  const chart = barChart(top20Data);
-  document.getElementById("barchart").appendChild(chart);
-}).catch(function(error) {
-    console.log("Error loading the CSV file:", error);
-});
