@@ -10,7 +10,9 @@ body {
   margin: 0; /* Fjerner standardmargen */
 }
 
-
+#headingContainer{
+  margin: 25px;
+}
 /* Styling af #frontpageHeading-elementet */
 #frontpageHeading {
   margin-top: auto;  /*Automatiserer topmargen */
