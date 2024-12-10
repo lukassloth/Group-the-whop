@@ -22,9 +22,8 @@ body {
   z-index: 11; /* Sørger for, at den er bag andre elementer med højere z-index */
   transition: opacity 0.5s ease; /* Glidende overgang for gennemsigtighed */
   overflow: hidden; /* Skjuler overskydende indhold*/
+  text-decoration: underline;
 }
-
-
 
 /* Når #frontpageHeading har klassen hidden */
 #frontpageHeading.hidden {
@@ -32,6 +31,13 @@ body {
   pointer-events: none; /* Deaktiverer klik og andre pointer-events */
   z-index: 11; /* Sørger for, at den er bag andre elementer med højere z-index */
   overflow: hidden; /* Skjuler overskydende indhold*/
+}
+
+#miniHeading {
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 10px;
+  color: #404040;
 }
 
 /* Styling af #map-container, som holder et SVG-kort */
