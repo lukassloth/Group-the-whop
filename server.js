@@ -50,6 +50,25 @@ app.get('/api/data', async (req, res) => {
     }
   });
 
+// Her hentes data til vores barchart inde på statistik siden
+  app.get('/api/barchart-data', async (req, res) => {
+    try {
+      const result = await pool.query(`
+        SELECT c.country, c.consumption_twh
+        FROM consumption c
+        ORDER BY c.consumption_twh DESC
+        LIMIT 40
+      `);
+      res.json(result.rows);
+    } catch (error) {
+      console.error('Error fetching bar chart data:', error);
+      res.status(500).send({
+        error: 'Error fetching bar chart data',
+        details: error.message,
+      });
+    }
+  });
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
