@@ -57,13 +57,33 @@ app.get('/api/data', async (req, res) => {
         SELECT c.country, c.consumption_twh
         FROM consumption c
         ORDER BY c.consumption_twh DESC
-        LIMIT 40
+        LIMIT 30
       `);
       res.json(result.rows);
     } catch (error) {
       console.error('Error fetching bar chart data:', error);
       res.status(500).send({
         error: 'Error fetching bar chart data',
+        details: error.message,
+      });
+    }
+  });
+
+  app.get('/api/barchart-land-data', async (req, res) => {
+    try {
+      const result = await pool.query(`
+        SELECT country, avg_land_i_procent
+        FROM gross_data
+        WHERE country NOT IN ('Singapore', 'Bahrain', 'Malta')
+        ORDER BY avg_land_i_procent DESC
+        LIMIT 30
+      `);
+
+      res.json(result.rows);
+    } catch (error) {
+      console.error('Error fetching land percentage data:', error);
+      res.status(500).send({
+        error: 'Error fetching land percentage data',
         details: error.message,
       });
     }
