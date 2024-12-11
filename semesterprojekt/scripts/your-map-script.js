@@ -218,15 +218,19 @@ document.querySelector(".sidebar2").classList.add("visible");
     };*/
     
     const continentBounds = {
-        Africa: [[-50, -51], [80, 68]],
-        Asia: [[30, -15], [172, 73]],
-        Europe: [[-30, 32], [60, 78]],
-        MiddleEast: [[0, 0],[100, 70]],
-        NorthAmerica: [[-180, 20], [-50, 80]],
-        SouthAmerica: [[-100, -65], [-20, 40]],
-        Australia: [[115, -60], [170, 5]],
-        World: [[0, 0], [0, 0]]
+        Africa: [[-50, -61], [80, 58]],
+        Asia: [[30, -25], [172, 65]],
+        Europe: [[-30, 22], [60, 78]],
+        MiddleEast: [[0, -10], [100, 60]],
+        NorthAmerica: [[-180, 10], [-50, 80]],
+        SouthAmerica: [[-100, -75], [-20, 30]],
+        Australia: [[115, -70], [170, 0]],
+        World: [[0, 0], [0, 0]] // Zoomer mere ud
     };
+    
+    
+    
+    
 
     console.log("Initial zoom state:", d3.zoomIdentity);
     // Logger den oprindelige zoom-tilstand (uden ændringer)
