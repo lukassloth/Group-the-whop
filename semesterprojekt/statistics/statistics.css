@@ -49,3 +49,31 @@ h1 {
     padding-bottom: 50px;
     text-align: center;
 }
+
+#statisticsButtons {
+    position: absolute; /* Absolut placering */
+    top: 25px; /* Afstand fra bunden */
+    right: 10px; /* Afstand fra venstre */
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertikal retning */
+    gap: 10px; /* Afstand mellem knapper */
+    z-index: 30; /* Sørger for, at de er øverst */
+}
+
+#statisticsButtons button {
+    padding: 10px 20px; /* Indre afstand */
+    background-color: #6f8c52; /* Baggrundsfarve */
+    color: #f2f2f2; /* Tekstfarve */
+    border: groove; /* Fjerner kanten */
+    border-color: #f2f2f2;
+    border-radius: 10px; /* Afrundede hjørner */
+    cursor: pointer; /* Hånd-cursor */
+  }
+
+#statisticsButtons button:hover {
+    background-color: #5a733f;
+}
+
+#chartContainer {
+    text-align: center;
+}
