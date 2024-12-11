@@ -56,12 +56,13 @@ function barChart(data) {
 }
 
 function createLandPercentageChart() {
+document.getElementById("chartContainer").innerHTML = '';
   fetch('/api/barchart-land-data')
     .then(response => response.json())
     .then(data => {
       console.log("Loaded land percentage data:", data);
       const chart = barChartLandPercentage(data);
-      document.getElementById("barchart-land").appendChild(chart);
+      document.getElementById("chartContainer").appendChild(chart);
     })
     .catch(function(error) {
       console.log("Error loading the land percentage data:", error);
@@ -125,18 +126,25 @@ function barChartLandPercentage(data) {
   return svg.node();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  createLandPercentageChart();
-});
 
-// Replace the d3.csv() call with this
+function createBarChartConsumption() {
+document.getElementById("chartContainer").innerHTML = '';
 fetch('/api/barchart-data')
   .then(response => response.json())
   .then(data => {
     console.log("Loaded data:", data);
     const chart = barChart(data);
-    document.getElementById("barchart").appendChild(chart);
+    document.getElementById("chartContainer").appendChild(chart);
   })
   .catch(function(error) {
     console.log("Error loading the data:", error);
   });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('consumptionButton').addEventListener('click', createBarChartConsumption);
+  document.getElementById('landPercentageButton').addEventListener('click', createLandPercentageChart);
+  
+  // Create default chart
+  createBarChartConsumption();
+});
