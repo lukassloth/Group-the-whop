@@ -10,22 +10,35 @@ body {
   margin: 0; /* Fjerner standardmargen */
 }
 
-#headingContainer{
-  margin: 25px;
+#headingContainer {
+  position: absolute; /* Gør det muligt at placere begge elementer samlet */
+  top: 20px; /* Placerer containeren 20px fra toppen */
+  left: 50%; /* Placerer containerens venstre kant midt på skærmen */
+  transform: translateX(-50%); /* Flytter containeren halvdelen af dens bredde tilbage for at centrere horisontalt */
+  text-align: center; /* Centrerer teksten indeni */
+  width: 700px; /* Bredden af containeren */
+  max-width: 90%; /* Sikrer responsiv design */
 }
-/* Styling af #frontpageHeading-elementet */
+
 #frontpageHeading {
-  margin-top: auto;  /*Automatiserer topmargen */
   font-size: 60px; /* Skriftstørrelse */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
   font-weight: bold; /* Gør teksten fed */
   color: #404040; /* Tekstfarve */
-  text-align: center; /* Centrerer teksten */
-  z-index: 11; /* Sørger for, at den er bag andre elementer med højere z-index */
-  transition: opacity 0.5s ease; /* Glidende overgang for gennemsigtighed */
-  overflow: hidden; /* Skjuler overskydende indhold*/
-  text-decoration: underline;
+  border-bottom: 1px solid #000; /* Sort kantlinje under overskriften */
+  padding-bottom: 5px; /* Afstand under teksten */
+  margin: 0; /* Fjern standardmargin */
 }
+
+#miniHeading {
+  font-size: 17px; /* Skriftstørrelse */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
+  color: #404040; /* Tekstfarve */
+  margin-top: 10px; /* Lidt afstand over teksten */
+  margin-bottom: 0; /* Ingen afstand under teksten */
+  font-weight: normal; /* Normal vægt for at skelne fra hovedoverskriften */
+}
+
 
 /* Når #frontpageHeading har klassen hidden */
 #frontpageHeading.hidden {
@@ -35,25 +48,17 @@ body {
   overflow: hidden; /* Skjuler overskydende indhold*/
 }
 
-#miniHeading {
-  text-align: center;
-  margin-top: -30px;
-  margin-bottom: 10px;
-  color: #404040;
-}
-
-/* Styling af #map-container, som holder et SVG-kort */
 #map-container {
-  position: fixed; /* Fastgør containeren i forhold til skærmen */
-  top: -1; /* Placerer containeren øverst */
+  position: absolute; /* Absolut placering i forhold til body */
+  top: 300px; /* Justér afstanden mellem kortet og overskriften */
   left: 0; /* Placerer containeren til venstre */
   width: 100%; /* Fylder hele bredden af skærmen */
-  height: 100%; /* Fylder hele højden af skærmen */
+  height: calc(100% - 200px); /* Fylder resten af skærmen under overskriften */
   z-index: -1; /* Sørger for, at den er bag andre elementer med højere z-index */
-  justify-content: center; /* Centrerer indhold horisontalt */
-  align-items: center; /* Centrerer indhold vertikalt */
-  margin-top: 40px;
+  display: grid; /* Brug grid-layout for centrering */
+  place-items: center; /* Centrerer SVG'en både horisontalt og vertikalt */
 }
+
 
 /* Styling af SVG-elementer indenfor #map-container */
 #map-container svg {
@@ -65,7 +70,6 @@ body {
   height: auto; /* Bevarer SVG'ens proportioner baseret på bredden */
   overflow: visible; /* Tillader indhold uden for SVG'en at blive vist */
 }
-
 /* Styling af landene i SVG'en */
 path {
   stroke-width: 0.6px; /* Linjetykkelse */
