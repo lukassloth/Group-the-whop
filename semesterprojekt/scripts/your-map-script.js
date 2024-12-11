@@ -6,45 +6,45 @@ document.addEventListener('DOMContentLoaded', function () {
     // Sætter bredde og højde for SVG-elementet
 
     // Tooltip element
-    const demo = document.getElementById("demo");
-    const demo2 = document.getElementById("demo2");
+    const tooltip = document.getElementById("tooltip");
+    const tooltip2 = document.getElementById("tooltip2");
     const heading = document.getElementById("headingContainer");
     // Henter HTML-elementer til tooltip og overskrift
 
-    // Synkronisering af demo2 og sidebar2
+    // Synkronisering af tooltip2 og sidebar2
     function updateSidebar2Visibility() {
         const sidebar2 = document.querySelector('.sidebar2'); 
         // Henter elementet med klassen 'sidebar2', som er den højre sidebar.
     
-        const demo2 = document.getElementById('demo2'); 
-        // Henter elementet med id'et 'demo2', som bruges til at vise tooltip-data.
+        const tooltip2 = document.getElementById('tooltip2'); 
+        // Henter elementet med id'et 'tooltip2', som bruges til at vise tooltip-data.
     
-        if (demo2.style.visibility === 'visible') { 
-            // Tjekker om 'demo2' er synlig (dvs. om dens visibility-stil er sat til 'visible').
+        if (tooltip2.style.visibility === 'visible') { 
+            // Tjekker om 'tooltip2' er synlig (dvs. om dens visibility-stil er sat til 'visible').
             sidebar2.classList.add('visible'); 
-            // Hvis demo2 er synlig, tilføjes klassen 'visible' til 'sidebar2', så den glider ind på skærmen.
+            // Hvis tooltip2 er synlig, tilføjes klassen 'visible' til 'sidebar2', så den glider ind på skærmen.
         } else { 
-            // Hvis demo2 ikke er synlig.
+            // Hvis tooltip2 ikke er synlig.
             sidebar2.classList.remove('visible'); 
             // Klassen 'visible' fjernes fra 'sidebar2', så den glider ud af skærmen.
         }
     }
     
     
-    // Når demo2 skal vises
-    function showDemo2(content) {
-        const demo2 = document.getElementById('demo2');
+    // Når tooltip2 skal vises
+    function showTooltip2(content) {
+        const tooltip2 = document.getElementById('tooltip2');
         const sidebar2 = document.querySelector('.sidebar2');
-        demo2.innerHTML = content; // Opdater indhold
-        demo2.style.visibility = 'visible'; // Gør synlig
+        tooltip2.innerHTML = content; // Opdater indhold
+        tooltip2.style.visibility = 'visible'; // Gør synlig
         sidebar2.classList.add('visible'); // Flyt sidebar ind på skærmen
     }
     
-    // Når demo2 skal skjules
-    function hideDemo2() {
-        const demo2 = document.getElementById('demo2');
+    // Når tooltip2 skal skjules
+    function hideTooltip2() {
+        const tooltip2 = document.getElementById('tooltip2');
         const sidebar2 = document.querySelector('.sidebar2');
-        demo2.style.visibility = 'hidden'; // Skjul demo2
+        tooltip2.style.visibility = 'hidden'; // Skjul tooltip2
         sidebar2.classList.remove('visible'); // Flyt sidebar ud af skærmen
     }
     
@@ -147,15 +147,26 @@ document.addEventListener('DOMContentLoaded', function () {
                     const land_km2 = countryData.gross_data[countryName]?.land_km2 || 'N/A';
                     // Henter specifik data for landet fra countryData
 
+                    const nuclearPowerplants = (consumption_twh / 8.12).toFixed(1); // Divider og afrund til 1 decimal
+                    const nuclearArea = (((consumption_twh / 8.17) * 2.6) / area * 100).toFixed(5); // Divider og afrund til 1 decimal
                     // Vis data i tooltip
-                    demo.innerHTML = `
-                       <strong> ${avg_land_i_procent} % </strong> of <strong>${countryName}</strong><br>
-                        covered in solar panels
-                        
-                    `;
-                    demo.style.left = `${event.pageX + 10}px`;
-                    demo.style.top = `${event.pageY - 30}px`;
-                    demo.style.visibility = "visible";
+                    tooltip.innerHTML = `
+                    <div class="tooltip-content">
+                        <strong class="highlight">${avg_land_i_procent}%</strong> of 
+                        <strong class="highlight">${countryName}</strong><br>
+                        <span class="description">covered in solar panels</span>
+                        <hr>
+                        <strong class="highlight">${nuclearPowerplants}</strong> 
+                        <span class="description">Nuclear Power Plants</span><br>
+                        <span class="description">But only</span> 
+                        <strong class="highlight">${nuclearArea}%</strong> of 
+                        <strong class="highlight">${countryName}</strong><br>
+                        <span class="description">covered in powerplants</span>
+                    </div>
+                `;
+                    tooltip.style.left = `${event.pageX + 10}px`;
+                    tooltip.style.top = `${event.pageY - 30}px`;
+                    tooltip.style.visibility = "visible";
                     // Opdaterer og viser tooltip med landets data
 
                     event.stopPropagation();
@@ -163,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 
                     // Vis data i tooltip
-                    demo2.innerHTML = `
+                    tooltip2.innerHTML = `
                         <h4>${countryName}</h4>
                         <h3>Total area:</h3>
                         ${area} km² <br>
@@ -176,9 +187,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h3>Required landmass in km²:</h3>
                         ${land_km2} km²
                     `;
-                    demo2.style.left = `${event.pageX + 10}px`;
-                    demo2.style.top = `${event.pageY - 30}px`;
-                    demo2.style.visibility = "visible";
+                    tooltip2.style.left = `${event.pageX + 10}px`;
+                    tooltip2.style.top = `${event.pageY - 30}px`;
+                    tooltip2.style.visibility = "visible";
                     // Opdaterer og viser tooltip med landets data
 
 document.querySelector(".sidebar2").classList.add("visible");
@@ -189,8 +200,8 @@ document.querySelector(".sidebar2").classList.add("visible");
 
     // Skjul tooltip'en, når der klikkes uden for lande eller knapper
     svg.on("click", function () {
-        demo.style.visibility = "hidden";
-        hideDemo2(); // Skjul både demo2 og sidebar2
+        tooltip.style.visibility = "hidden";
+        hideTooltip2(); // Skjul både tooltip2 og sidebar2
         // Skjuler tooltip
     });
 
@@ -266,7 +277,7 @@ document.querySelector(".sidebar2").classList.add("visible");
         button.addEventListener("click", function () {
             const continent = this.getAttribute("data-continent");
             zoomToRegion(continent);
-            demo.style.visibility = "hidden";
+            tooltip.style.visibility = "hidden";
             // Tilføjer klik-event til knapper for at zoome til det valgte kontinent
         });
     });

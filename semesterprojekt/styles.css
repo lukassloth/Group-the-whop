@@ -209,18 +209,49 @@ a:hover {
   translate: 0; /* Flytter sidebar på plads */
 }
 
-/* Styling af tooltip (info om lande) */
-#demo {
-  position: absolute; /* Absolut placering */
+/* Tooltip styling */
+#tooltip {
+  position: absolute; /* Tooltip placering */
+  background-color: #f2f2f2; /* Lys baggrund for læsbarhed */
   color: #404040; /* Tekstfarve */
-  background-color: #f2f2f2; /* Baggrundsfarve */
-  padding: 5px 10px; /* Indre afstand */
-  border-radius: 4px; /* Afrundede hjørner */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
-  font-weight: bolder; /* Fed tekst */
+  padding: 10px 15px; /* Afstand mellem tekst og kanter */
+  border-radius: 8px; /* Afrundede hjørner for moderne udseende */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Ensartet skrifttype */
+  font-weight: bold; /* Gør teksten markant */
   visibility: hidden; /* Skjules som standard */
-  pointer-events: none; /* Ingen interaktion muligt */
+  pointer-events: none; /* Undgå interaktion */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tilføjer en subtil skygge */
+  z-index: 100; /* Sørger for, at tooltip altid vises øverst */
 }
+
+/* Tooltip container styling */
+.tooltip-content {
+  text-align: center; /* Centreret indhold */
+  font-size: 1em; /* Standard tekststørrelse */
+  line-height: 1.5; /* Giver bedre afstand mellem linjer */
+}
+
+/* Fremhævede elementer */
+.tooltip-content .highlight {
+  font-size: 1.3em; /* Gør fremhævede elementer større */
+  color: #6f8c52; /* Grøn farve til fremhævelse */
+  font-weight: bold; /* Gør teksten mere markant */
+}
+
+/* Beskrivelsestekst */
+.tooltip-content .description {
+  font-style: italic; /* Kursiv stil for adskillelse */
+  color: #333; /* Mørkere tekstfarve for subtil kontrast */
+}
+
+/* Horisontal linje */
+.tooltip-content hr {
+  margin: 15px 0; /* Lodret afstand omkring linjen */
+  border: none; /* Fjern standard grænser */
+  border-top: 1px solid #ccc; /* Tynd grå linje for opdeling */
+}
+
+
 
 /* Styling af zoom-knapper (Placering) */
 .buttons {
@@ -317,8 +348,8 @@ a:hover {
 }
 
 
-/* Styling af tooltip (info om lande) */
-#demo2 {
+/* Styling af tooltip (info om lande i sidebar) */
+#tooltip2 {
   color: #404040; /* Tekstfarve */
   padding: 5px 1px; /* Indre afstand */
   border-radius: 4px; /* Afrundede hjørner */
@@ -331,4 +362,5 @@ h4 {
   font-size:xx-large;
   margin-top: 10px;
   padding-bottom: -40px;
+  color: #4d7327;
 }
