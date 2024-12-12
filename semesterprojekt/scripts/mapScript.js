@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     // Opret SVG
-    const svg = d3.select("#map-container")
+    const svg = d3.select("#mapContainer")
         .append("svg")
         .attr("width", width)
         .attr("height", height);
-    // Opretter et SVG-element i #map-container med angivne dimensioner
+    // Opretter et SVG-element i #mapContainer med angivne dimensioner
 
     // Opsæt kortprojektionen
     const projection = d3.geoNaturalEarth1()
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .on("zoom", (event) => {
             svg.selectAll("g").attr("transform", event.transform);
         });
-    // Opsætter zoom-funktionalitet med minimum og maksimum zoom (1 til 8).
+    // Opsætter zoom-funktionalitet med minimum og maksimum zoom (0 til 8).
     // Ved zoom ændres `transform`-attributten på alle grupper i SVG
 
     svg.call(zoom);
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Logger det samlede countryData-objekt
     })
     .catch(error => console.error('Error fetching data:', error));
-    // Logger fejl, hvis API-opkaldet fejler
+    // Logger fejl i console, hvis API-opkaldet fejler
 
     // Hent og vis kortdata
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
@@ -147,8 +147,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     const land_km2 = countryData.gross_data[countryName]?.land_km2 || 'N/A';
                     // Henter specifik data for landet fra countryData
 
+
+                    // Opretter variabel for atomkraft
                     const nuclearPowerplants = (consumption_twh / 8.12).toFixed(1); // Divider og afrund til 1 decimal
                     const nuclearArea = (((consumption_twh / 8.17) * 2.6) / area * 100).toFixed(5); // Divider og afrund til 1 decimal
+                    
                     // Vis data i tooltip
                     tooltip.innerHTML = `
                     <div class="tooltip-content">
@@ -204,20 +207,19 @@ document.querySelector(".sidebar2").classList.add("visible");
         hideTooltip2(); // Skjul både tooltip2 og sidebar2
         // Skjuler tooltip
     });
-    
+
+    // Opretter Zoom variabler
     const continentBounds = {
-        Africa: [[-50, -61], [80, 58]],
-        Asia: [[30, -25], [172, 65]],
-        Europe: [[-30, 22], [60, 78]],
-        MiddleEast: [[0, -10], [100, 60]],
-        NorthAmerica: [[-165, 25], [-10, 30]],
-        SouthAmerica: [[-165, -80], [-20, 20]],
-        Australia: [[115, -70], [170, 0]],
-        World: [[0, 0], [0, 0]] // Zoomer mere ud
+        Africa: [[-50, -61], [80, 58]], // Zoomer ind på Africa
+        Asia: [[30, -25], [172, 65]], // Zoomer ind på Asia
+        Europe: [[-30, 22], [60, 78]], // Zoomer ind på Europe
+        MiddleEast: [[0, -10], [100, 60]], // Zoomer ind på Middle East
+        NorthAmerica: [[-165, 25], [-10, 30]], // Zoomer ind på North America
+        SouthAmerica: [[-165, -80], [-20, 20]], // Zoomer ind på South America
+        Australia: [[115, -70], [170, 0]], // Zoomer ind på Australia
+        World: [[0, 0], [0, 0]] // Zoomer ud til world
     };
     
-    console.log("Initial zoom state:", d3.zoomIdentity);
-    // Logger den oprindelige zoom-tilstand (uden ændringer)
 
     function zoomToRegion(region) {
         const bounds = continentBounds[region];

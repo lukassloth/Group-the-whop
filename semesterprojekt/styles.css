@@ -8,7 +8,7 @@ body {
   background-color: #d9c3a9; /* Sætter en baggrundsfarve */
   cursor: url('sunCursor.png'), auto; /* Bruger en custom cursor med fallback */
   margin: 0; /* Fjerner standardmargen */
-  overflow: hidden;
+  overflow: hidden; /* Fjerner scrollbar */
 }
 
 #headingContainer {
@@ -56,7 +56,7 @@ body {
   overflow: hidden; /* Skjuler overskydende indhold*/
 }
 
-#map-container {
+#mapContainer {
   position: absolute; /* Absolut placering i forhold til body */
   top: 300px; /* Justér afstanden mellem kortet og overskriften */
   left: 0; /* Placerer containeren til venstre */
@@ -68,13 +68,13 @@ body {
 }
 
 
-/* Styling af SVG-elementer indenfor #map-container */
-#map-container svg {
-  position: absolute; /* Tillader præcis placering i forhold til #map-container */
-  top: 50%; /* Flytter SVG'en 50% ned fra toppen af #map-container */
-  left: 50%; /* Flytter SVG'en 50% ind fra venstre af #map-container */
+/* Styling af SVG-elementer indenfor #mapContainer */
+#mapContainer svg {
+  position: absolute; /* Tillader præcis placering i forhold til #mapContainer */
+  top: 50%; /* Flytter SVG'en 50% ned fra toppen af #mapContainer */
+  left: 50%; /* Flytter SVG'en 50% ind fra venstre af #mapContainer */
   transform: translate(-54%, -57%); /* Flytter SVG'ens centrum yderligere mod venstre og op */
-  width: 100%; /* SVG'en fylder hele bredden af #map-container */
+  width: 100%; /* SVG'en fylder hele bredden af #mapContainer */
   height: auto; /* Bevarer SVG'ens proportioner baseret på bredden */
   overflow: visible; /* Tillader indhold uden for SVG'en at blive vist */
 }
@@ -370,9 +370,10 @@ a:hover {
   pointer-events: none; /* Ingen interaktion muligt */
 }
 
+/* styling af underoverskrift text */
 h4 {
-  font-size:xx-large;
-  margin-top: 10px;
-  padding-bottom: -40px;
-  color: #4d7327;
+  font-size:xx-large; /* Styrer størrelsen på text */
+  margin-top: 10px; /* Styrer margin på top */
+  padding-bottom: -40px; /* Styrer padding på bottom */
+  color: #4d7327; /* Styrer farve på text */
 }

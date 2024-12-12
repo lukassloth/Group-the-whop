@@ -39,8 +39,8 @@ Farven har vi sørget for passer til vores farveskema. */
       .attr("height", d => y(0) - y(d.consumption_twh)) // Vælger højde ud fra værdien fra consumption_twh
       .attr("width", x.bandwidth());
 
-/* Her laves sørger vi for at teksten står en smule på skrå på x-aksen
-og justeret teksten så det er til at læse */
+/* Her sørger vi for at teksten står en smule på skrå på x-aksen
+og justeret teksten, så det er til at læse */
   svg.append("g")
       .attr("transform", `translate(0,${height - marginBottom})`)
       .call(d3.axisBottom(x))
@@ -51,7 +51,7 @@ og justeret teksten så det er til at læse */
       .attr("dy", "1.5px")
       .attr("transform", "rotate(-65)"); 
 
-// Her smider vi noget styling på y-aksen så den er til at se
+// Her justerer vi teksten og charten på y-aksen så den er til at se
   svg.append("g")
       .attr("transform", `translate(${marginLeft},0)`)
       .call(d3.axisLeft(y))
@@ -123,7 +123,7 @@ function barChartLandPercentage(data) {
       .attr("height", d => y(0) - y(d.avg_land_i_procent)) // Vælger højde på y-aksen ud fra værdien af y
       .attr("width", x.bandwidth());
 
-// Her fikser vi igen teksten og styler x-aksen
+// Her fikser vi igen teksten og x-aksen
   svg.append("g")
       .attr("transform", `translate(0,${height - marginBottom})`)
       .call(d3.axisBottom(x))
@@ -134,7 +134,7 @@ function barChartLandPercentage(data) {
       .attr("dy", "1.5px")
       .attr("transform", "rotate(-65)"); 
 
-// Her laves y-aksen og skriver hvad man ser
+// Her laves y-aksen
   svg.append("g")
       .attr("transform", `translate(${marginLeft},0)`)
       .call(d3.axisLeft(y))
@@ -204,7 +204,7 @@ function barChartSunshineHours(data) {
       .attr("height", d => y(0) - y(d.sunshine_hours)) // Vælger højde på y-aksen ud fra værdien af y
       .attr("width", x.bandwidth());
 
-// Her fikser vi igen teksten og styler x-aksen
+// Her fikser vi igen teksten og x-aksen
   svg.append("g")
       .attr("transform", `translate(0,${height - marginBottom})`)
       .call(d3.axisBottom(x))
@@ -215,7 +215,7 @@ function barChartSunshineHours(data) {
       .attr("dy", "1.5px")
       .attr("transform", "rotate(-65)"); 
 
-// Her laves y-aksen og skriver hvad man ser
+// Her laves y-aksen
   svg.append("g")
       .attr("transform", `translate(${marginLeft},0)`)
       .call(d3.axisLeft(y))
@@ -285,7 +285,7 @@ function barChartLandArea(data) {
       .attr("height", d => y(0) - y(d.area)) // Vælger højde på y-aksen ud fra værdien af y
       .attr("width", x.bandwidth());
 
-// Her fikser vi igen teksten og styler x-aksen
+// Her fikser vi igen teksten og x-aksen
   svg.append("g")
       .attr("transform", `translate(0,${height - marginBottom})`)
       .call(d3.axisBottom(x))
@@ -296,7 +296,7 @@ function barChartLandArea(data) {
       .attr("dy", "1.5px")
       .attr("transform", "rotate(-65)"); 
 
-// Her laves y-aksen og skriver hvad man ser
+// Her laves y-aksen
   svg.append("g")
       .attr("transform", `translate(${marginLeft},0)`)
       .call(d3.axisLeft(y))
