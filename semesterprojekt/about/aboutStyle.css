@@ -1,7 +1,7 @@
 /* Styler hele body-elementet */
 body {
     background-color: #d9c3a9; /* Sætter en baggrundsfarve */
-    cursor: url('sun-cursor.png'), auto; /* Bruger en custom cursor med fallback */
+    cursor: url('sunCursor.png'), auto; /* Bruger en custom cursor med fallback */
     margin: 0; /* Fjerner standardmargen */
   }
 
@@ -21,6 +21,7 @@ h1 {
  /* Styling til "about" sektionen */
 #about {
     background-color: #f9f9f9; /* Lys baggrundsfarve for god kontrast */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
     border-radius: 10px; /* Runde hjørner for et blødt design */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Let skygge for dybde */
     padding: 20px 40px; /* Indre afstand for luft omkring teksten */
@@ -34,14 +35,16 @@ h1 {
 /* Styling til overskrifter */
 #about h2 {
     font-size: 28px; /* Gør overskriften fremtrædende */
-    color: #2a4d69; /* Mørkeblå farve for at skille sig ud */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
+    color: #4d7327; /* Mørkeblå farve for at skille sig ud */
     text-align: center; /* Centrer overskriften */
     margin-bottom: 20px; /* Læg afstand under overskriften */
 }
 
 #about h3 {
     font-size: 22px; /* Mellemstor skriftstørrelse til underoverskrifter */
-    color: #537a91; /* Blødere blå farve til variation */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
+    color: #4d7327; /* Blødere blå farve til variation */
     margin-top: 20px; /* Læg afstand over underoverskrifter */
 }
 
@@ -49,6 +52,7 @@ h1 {
 #about p {
     margin-bottom: 15px; /* Læg afstand under afsnit */
     text-align: justify; /* Justerer teksten for pæn linjejustering */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
 }
 
 /* Styling til lister */
@@ -56,6 +60,8 @@ h1 {
     margin: 15px 0 15px 20px; /* Afstand over og under listen, med indryk */
     padding: 0; /* Fjern indre padding */
     list-style-type: disc; /* Brug standard punkttegn */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Skrifttype */
+   
 }
 
 #about ul li {
@@ -64,7 +70,7 @@ h1 {
 
 /* Fremhæv vigtige tekstdele */
 #about strong {
-    color: #2a4d69; /* Gør fremhævet tekst mørkeblå */
+    color: #6f8c52; /* Gør fremhævet tekst mørkeblå */
 }
 
 
