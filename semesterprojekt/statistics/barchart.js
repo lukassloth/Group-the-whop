@@ -61,9 +61,14 @@ og justeret teksten, så det er til at læse */
           .attr("y", 10)
           .attr("fill", "currentColor")
           .attr("text-anchor", "start")
-          .text("↑ Energy consumption (tWh)"));
+          .text("↑ Yearly energy consumption (tWh)"));
 
   return svg.node();
+}
+
+// Her laver vi en funktion så vi kan få noget tekst under charten
+function updateTextBox(text) {
+  document.getElementById("tekst").innerHTML = text;
 }
 
 /* Her laver vi en funktion der så henter vores funktion ind.
@@ -71,6 +76,7 @@ På en linje sletter vi det der allerede er i vores container, så der ikke komm
 flere barcharts på samme tid, så charten hele tiden vil være det samme sted .*/
 function createLandPercentageChart() {
 document.getElementById("chartContainer").innerHTML = '';
+updateTextBox("Here you can see how much land a country would have to give up to solar panels, to cover their yearly energy consumption.");
   fetch('/api/barchart-land-data')
     .then(response => response.json())
     .then(data => {
@@ -152,6 +158,7 @@ function barChartLandPercentage(data) {
 // Funktion der finder barcharten frem, vælger vores chartcontainer og henter dataen ind
 function createBarChartConsumption() {
 document.getElementById("chartContainer").innerHTML = '';
+updateTextBox("Here you can see how much energy each country consumes every year, measured in tera watt hours.");
 fetch('/api/barchart-data')
   .then(response => response.json())
   .then(data => {
@@ -233,6 +240,7 @@ function barChartSunshineHours(data) {
 // Funktion der finder barcharten frem, vælger vores chartcontainer og henter dataen ind
 function createBarSunshineHours() {
 document.getElementById("chartContainer").innerHTML = '';
+updateTextBox("Here you can see how many hours of sun each country has every year. ");
 fetch('/api/barchart-data-sunshine')
   .then(response => response.json())
   .then(data => {
@@ -314,6 +322,7 @@ function barChartLandArea(data) {
 // Funktion der finder barcharten frem, vælger vores chartcontainer og henter dataen ind
 function createBarLandArea() {
 document.getElementById("chartContainer").innerHTML = '';
+updateTextBox("Here you can see how big each country is measured in km². ");
 fetch('/api/barchart-data-area')
   .then(response => response.json())
   .then(data => {
@@ -326,7 +335,6 @@ fetch('/api/barchart-data-area')
   });
 }
 
-
 // Tilføjer eventlisteners med knapper som gør at man kan kalde chartsne frem og skifte mellem dem
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('consumptionButton').addEventListener('click', createBarChartConsumption);
@@ -335,5 +343,5 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('landArea').addEventListener('click', createBarLandArea);
   
 // Til slut sørger vi for at der er en chart når siden starter op så der ikke er tomt
-  createBarChartConsumption();
+  createLandPercentageChart();
 });
