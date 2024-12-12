@@ -8,6 +8,9 @@ body {
   background-color: #d9c3a9; /* Sætter en baggrundsfarve */
   cursor: url('sun-cursor.png'), auto; /* Bruger en custom cursor med fallback */
   margin: 0; /* Fjerner standardmargen */
+  width: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 #headingContainer {
