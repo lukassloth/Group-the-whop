@@ -73,7 +73,7 @@ app.get('/api/data', async (req, res) => {
   });
 
 /* Her hentes yderligere data, hvor vi i vores sql querry har udeladt tre lande, for at overskueliggøre vores barchart, da disse lande
-har kræver op mod 800% af deres land dækket i solceller */
+kræver op mod 800% af deres land dækket i solceller */
 
   app.get('/api/barchart-land-data', async (req, res) => {
     try {
