@@ -16,7 +16,7 @@ function buildQuiz(){ //Funktion, der bruges til at lave quizzen
                     `<label> 
                         <input type="radio" name="question${questionNumber}" value="${letter}">
                         ${currentQuestion.answers[letter]}
-                    </label>` // Container og "radio" knapper til hvert spørgsmål, der stilles op spørgsmålene
+                    </label>` // Container og "radio" knapper til hver svarmuligheder, der stilles til spørgsmålene
                 );
             }
 
