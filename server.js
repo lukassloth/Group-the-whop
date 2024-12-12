@@ -94,6 +94,44 @@ har kræver op mod 800% af deres land dækket i solceller */
       });
     }
   });
+  
+// Her hentes data til vores barchart til sunshine hours inde på statistik siden, på samme måde som før
+app.get('/api/barchart-data-sunshine', async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT gd.country, gd.sunshine_hours
+      FROM gross_data gd
+      ORDER BY gd.sunshine_hours DESC
+      LIMIT 30
+    `);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error fetching bar chart data:', error);
+    res.status(500).send({
+      error: 'Error fetching bar chart data',
+      details: error.message,
+    });
+  }
+});
+
+// Her hentes data til vores barchart til area inde på statistik siden, på samme måde som før
+app.get('/api/barchart-data-area', async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT gd.country, gd.area
+      FROM gross_data gd
+      ORDER BY gd.area DESC
+      LIMIT 30
+    `);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error fetching bar chart data:', error);
+    res.status(500).send({
+      error: 'Error fetching bar chart data',
+      details: error.message,
+    });
+  }
+});
 
 // Her starter vi serveren så alt vores data kan blive vist
 app.listen(port, () => {
