@@ -204,34 +204,18 @@ document.querySelector(".sidebar2").classList.add("visible");
         hideTooltip2(); // Skjul både tooltip2 og sidebar2
         // Skjuler tooltip
     });
-
-    // Gendan zoom-funktionaliteten for kontinenter
-   /* const continentBounds = {
-        Africa: [[-40, -41], [70, 58]],          // Afrika
-        Asia: [[30, -15], [180, 75]],           // Asien
-        Europe: [[-30, 32], [60, 78]],          // Europa
-        NorthAmerica: [[-170, 10], [-50, 80]],  // Nordamerika
-        SouthAmerica: [[-95, -60], [-15, 35]],  // Sydamerika
-        Australia: [[105, -50], [160, 5]],      // Australien
-        World: [[-180, -85], [180, 95]]         // World (virker ik)
-        // Bounding box-koordinater for hvert kontinent og hele verden
-    };*/
     
     const continentBounds = {
         Africa: [[-50, -61], [80, 58]],
         Asia: [[30, -25], [172, 65]],
         Europe: [[-30, 22], [60, 78]],
         MiddleEast: [[0, -10], [100, 60]],
-        NorthAmerica: [[-180, 10], [-50, 80]],
-        SouthAmerica: [[-100, -75], [-20, 30]],
+        NorthAmerica: [[-165, 25], [-10, 30]],
+        SouthAmerica: [[-165, -80], [-20, 20]],
         Australia: [[115, -70], [170, 0]],
         World: [[0, 0], [0, 0]] // Zoomer mere ud
     };
     
-    
-    
-    
-
     console.log("Initial zoom state:", d3.zoomIdentity);
     // Logger den oprindelige zoom-tilstand (uden ændringer)
 
