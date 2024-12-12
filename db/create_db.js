@@ -1,9 +1,11 @@
+// Her hentes node modulerne
 import pg from 'pg';
 import dotenv from 'dotenv';
 import { pipeline } from 'node:stream/promises';
 import fs from 'node:fs';
 import { from as copyFrom } from 'pg-copy-streams';
 
+// Her oprettes forbindelse til vores database gennem vores .env fil
 dotenv.config();
 console.log('Connecting to database', process.env.PG_DATABASE);
 const db = new pg.Pool({
@@ -17,6 +19,10 @@ const db = new pg.Pool({
     } : undefined,
 });
 
+/* Herunder begynder vi at lave selve databasen.
+Dette gør vi ved at lave en sql querry som vi plejer i pgAdmin.
+Vi starter med drop table i tilfælde af at noget har skulle ændres.
+Derefter laver vi fire tabeller. */
 try {
     const dbResult = await db.query('SELECT NOW()');
     console.log('Database connection established on', dbResult.rows[0].now);
@@ -72,8 +78,11 @@ land_km2 decimal (10, 2)
 );
     `);
 
-    console.log('Tables recreated.');
+    console.log('Tables recreated.'); // Console logger at databasen er oprettet
 
+/* Herunder henter vi dataen ind i tabellerne fra vores csv filer.
+Igen gør vi som var det i pgAdmin og husker at skrive om det er med header, hvilke titler kolonnerne har osv.
+Så slutter vi med at give den en relative path til csv filerne. */
     console.log('Copying data from CSV files...');
     await copyIntoTable(db, `
         COPY area (country, code, year, area, time)
@@ -96,6 +105,7 @@ land_km2 decimal (10, 2)
         WITH CSV HEADER
     `, 'db/samlet_data.csv');
 
+// Hernede får vi logget i konsollen hvordan det er gået med at hente dataen.
     console.log('Data copied.');
 } catch (err) {
     console.error('Error during database setup:', err);
@@ -103,7 +113,8 @@ land_km2 decimal (10, 2)
     await db.end();
     console.log('Database connection closed.');
 }
-
+/* Herunder definerer vi en asynkron function der henter data ind i vores tabeller.
+Dette optimerer hastigheden ved at hente data ind i chunks i stedet for det hele på en gang */
 async function copyIntoTable(db, sql, file) {
     const client = await db.connect();
     try {
