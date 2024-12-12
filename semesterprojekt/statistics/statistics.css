@@ -31,23 +31,7 @@ h1 {
 }
 
 #returnButton:hover {
-    background-color: #5a733f;
-}
-
-#barchart {
-    width: 100%;
-    height: 500px;
-    overflow: visible;
-    padding-bottom: 50px;
-    text-align: center;
-}
-
-#barchart-land {
-    width: 100%;
-    height: 500px;
-    overflow: visible;
-    padding-bottom: 50px;
-    text-align: center;
+    background-color: #5a733f; /* Giver farve når man hover over retur knappen */
 }
 
 #statisticsButtons {
@@ -70,10 +54,10 @@ h1 {
     cursor: pointer; /* Hånd-cursor */
   }
 
-#statisticsButtons button:hover {
-    background-color: #5a733f;
+#statisticsButtons button:hover { 
+    background-color: #5a733f; /* Giver farve til knapperne når man hover over dem */
 }
 
 #chartContainer {
-    text-align: center;
+    text-align: center; /* Centrerer chart div'en */
 }
